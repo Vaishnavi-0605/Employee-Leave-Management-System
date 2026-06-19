@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave-Requests</title>
+    <link rel="stylesheet" href="./css/leave.css">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <div class="cont">
+            <nav class="nav-bar">
+                <div class="left">
+                    <div class="menu" id="menu-btn">
+                        <i class="bi bi-list"></i>
+                    </div>
+                    <div class="title">
+                        <h1>PreLeave</h1>
+                    </div>
+                    <div class="search-bar">
+                        <input type="text" name="" id="search-bar">
+                        <i class="bi bi-search"></i>
+                        <!-- <button type="submit">
+                        </button> -->
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="notif">
+                        <i class="bi bi-bell-fill"></i>
+                    </div>
+                    <div class="toggle-dn">
+                        <i class="bi bi-brightness-high-fill" id="theme-toggle"></i>
+                    </div>
+                    <div class="profile">
+                        <i class="bi bi-person-circle"></i>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="main-area">
+                <aside class="sidebar" id="sidebar">
+                    <div class="aside-nav">
+                         <div class="menu-item" id="dashboard-btn">
+                            <i class="bi bi-speedometer2"></i>
+                            <span>Dashboard</span>
+                        </div>
+    
+                        <div class="menu-item"  id="employees-btn">
+                            <i class="bi bi-people-fill"></i>
+                            <span>Employees</span>
+                        </div>
+    
+                        <div class="menu-item active active"  id="leave-btn">
+                            <i class="bi bi-calendar-check"></i>
+                            <span>Leave Requests</span>
+                        </div>
+    
+                        <div class="menu-item" id="attendance-btn"> 
+                            <i class="bi bi-clock-history"></i>
+                            <span>Attendance</span>
+                        </div>
+    
+                        <div class="menu-item" id="reports-btn">
+                            <i class="bi bi-bar-chart-line"></i>
+                            <span>Reports</span>
+                        </div>
+    
+                        <div class="menu-item" id="Settings-btn">
+                            <i class="bi bi-gear-fill"></i>
+                            <span>Settings</span>
+                        </div>
+
+                        <div class="menu-item" id="logout-btn">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <span>Logout</span>
+                        </div>
+                    </div>
+                </aside>
+
+                <div class="content-box">
+                    <div class="kpi-container">
+                        <div class="kpi-card">
+                            <h4>Total Requests</h4>
+                            <h1>32</h1>
+                            <p>All Time</p>
+                        </div>
+
+                        <div class="kpi-card">
+                            <h4>Pending</h4>
+                            <h1>12</h1>
+                            <p class="orange-text">Awaiting Action</p>
+                        </div>
+
+                        <div class="kpi-card">
+                            <h4>Approved</h4>
+                            <h1>16</h1>
+                            <p class="green-text">This Month</p>
+                        </div>
+
+                        <div class="kpi-card">
+                            <h4>Rejected</h4>
+                            <h1>4</h1>
+                            <p class="red-text">This Month</p>
+                        </div>
+                    </div>
+
+                    <div class="table-leaves">
+                        <div class="table-row table-header">
+                            <div>Employee</div>
+                            <div>Leave Type</div>
+                            <div>From</div>
+                            <div>To</div>
+                            <div>Days</div>
+                            <div>Reason</div>
+                            <div>Status</div>
+                            <div>Actions</div>
+                        </div>
+
+                        <div class="table-row">
+                            <div class="employee-cell">
+                                <div class="avatar">E</div>
+                                <div>
+                                    <h4>Isabella</h4>
+                                    <p>EMP001</p>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="tag casual">
+                                    Casual Leave
+                                </span>
+                            </div>
+                            <div>Jun 10</div>
+                            <div>Jun 11</div>
+                            <div>2</div>
+                            <div class="reason">Personal Work</div>
+                            <div>
+                                <span class="tag pending">
+                                    Pending
+                                </span>
+                            </div>
+                            <div class="actions">
+                                <button class="approve-btn">
+                                    Approve
+                                </button>
+                                <button class="reject-btn">
+                                    Reject
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="table-row">
+                            <div class="employee-cell">
+                                <div class="avatar">E</div>
+                                <div>
+                                    <h4>Emily</h4>
+                                    <p>EMP002</p>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="tag casual">
+                                    Casual Leave
+                                </span>
+                            </div>
+                            <div>Jun 10</div>
+                            <div>Jun 11</div>
+                            <div>2</div>
+                            <div>Personal Work</div>
+                            <div>
+                                <span class="tag pending">
+                                    Pending
+                                </span>
+                            </div>
+                            <div class="actions">
+                                <button class="approve-btn">
+                                    Approve
+                                </button>
+                                <button class="reject-btn">
+                                    Reject
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="table-row">
+                            <div class="employee-cell">
+                                <div class="avatar">E</div>
+                                <div>
+                                    <h4>Roselyn</h4>
+                                    <p>EMP002</p>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="tag casual">
+                                    earned Leave
+                                </span>
+                            </div>
+                            <div>Jun 10</div>
+                            <div>Jun 11</div>
+                            <div>2</div>
+                            <div>Personal Work</div>
+                            <div>
+                                <span class="tag pending">
+                                    Pending
+                                </span>
+                            </div>
+                            <div class="actions">
+                                <button class="approve-btn">
+                                    Approve
+                                </button>
+                                <button class="reject-btn">
+                                    Reject
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="table-row">
+                            <div class="employee-cell">
+                                <div class="avatar">E</div>
+                                <div>
+                                    <h4>Adrian</h4>
+                                    <p>EMP003</p>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="tag casual">
+                                    Sick Leave
+                                </span>
+                            </div>
+                            <div>Jun 10</div>
+                            <div>Jun 11</div>
+                            <div>2</div>
+                            <div>Personal Work</div>
+                            <div>
+                                <span class="tag pending">
+                                    Pending
+                                </span>
+                            </div>
+                            <div class="actions">
+                                <button class="approve-btn">
+                                    Approve
+                                </button>
+                                <button class="reject-btn">
+                                    Reject
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="table-row">
+                            <div class="employee-cell">
+                                <div class="avatar">R</div>
+                                <div>
+                                    <h4>Cassian</h4>
+                                    <p>EMP005</p>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="tag casual">
+                                    Sick Leave
+                                </span>
+                            </div>
+                            <div>Jun 10</div>
+                            <div>Jun 11</div>
+                            <div>2</div>
+                            <div>Feeling unwell</div>
+                            <div>
+                                <span class="tag pending">
+                                    Pending
+                                </span>
+                            </div>
+                            <div class="actions">
+                                <button class="approve-btn">
+                                    Approve
+                                </button>
+                                <button class="reject-btn">
+                                    Reject
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/leave.js""></script>
+    <script src="./script2.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance</title>
+    <link rel="stylesheet" href="./css/att.css">
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <nav class="nav-bar">
+                <div class="left">
+                    <div class="menu" id="menu-btn">
+                        <i class="bi bi-list"></i>
+                    </div>
+                    <div class="title">
+                        <h1>PreLeave</h1>
+                    </div>
+                    <div class="search-bar">
+                        <input type="text" name="" id="search-bar">
+                        <i class="bi bi-search"></i>
+                        <!-- <button type="submit">
+                        </button> -->
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="notif">
+                        <i class="bi bi-bell-fill"></i>
+                    </div>
+                    <div class="toggle-dn">
+                        <i class="bi bi-brightness-high-fill" id="theme-toggle"></i>
+                    </div>
+                    <div class="profile">
+                        <i class="bi bi-person-circle"></i>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="main-area">
+                <aside class="sidebar" id="sidebar">
+                    <div class="aside-nav">
+                          <div class="menu-item" id="dashboard-btn">
+                            <i class="bi bi-speedometer2"></i>
+                            <span>Dashboard</span>
+                        </div>
+    
+                        <div class="menu-item"  id="employees-btn">
+                            <i class="bi bi-people-fill"></i>
+                            <span>Employees</span>
+                        </div>
+    
+                        <div class="menu-item " id="leave-btn">
+                            <i class="bi bi-calendar-check"></i>
+                            <span>Leave Requests</span>
+                        </div>
+    
+                        <div class="menu-item active" id="attendance-btn"> 
+                            <i class="bi bi-clock-history active"></i>
+                            <span>Attendance</span>
+                        </div>
+    
+                        <div class="menu-item" id="reports-btn">
+                            <i class="bi bi-bar-chart-line"></i>
+                            <span>Reports</span>
+                        </div>
+    
+                        <div class="menu-item" id="Settings-btn">
+                            <i class="bi bi-gear-fill"></i>
+                            <span>Settings</span>
+                        </div>
+                        <div class="menu-item" id="logout-btn">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <span>Logout</span>
+                        </div>
+                    </div>
+                </aside>
+                <div class="content-box">
+
+                    <div class="kpi-card">
+                        <div class="attendance-cards">
+    
+                            <div class="attendance-card">
+                                <h4>Overall Attendance</h4>
+                                <h1>92%</h1>
+                                <p>↑ 4% from last month</p>
+                            </div>
+    
+                            <div class="attendance-card">
+                                <h4>Present</h4>
+                                <h1>118</h1>
+                                <span class="green-pill">Today</span>
+                            </div>
+    
+                            <div class="attendance-card">
+                                <h4>Absent</h4>
+                                <h1>10</h1>
+                                <span class="red-pill">Today</span>
+                            </div>
+    
+                            <div class="attendance-card">
+                                <h4>Late</h4>
+                                <h1>6</h1>
+                                <span class="orange-pill">Today</span>
+                            </div>
+    
+                            <div class="attendance-card">
+                                <h4>On Leave</h4>
+                                <h1>7</h1>
+                                <span class="purple-pill">Today</span>
+                            </div>
+    
+                        </div>
+                    </div>
+
+                    <div class="summary-table">
+
+                        <div class="summary-head">
+                            <div>Department</div>
+                            <div>Total</div>
+                            <div>Present</div>
+                            <div>Absent</div>
+                            <div>Late</div>
+                            <div>On Leave</div>
+                        </div>
+
+                        <div class="summary-row">
+                            <div>Engineering</div>
+                            <div>45</div>
+                            <div>43</div>
+                            <div>1</div>
+                            <div>1</div>
+                            <div>2</div>
+                        </div>
+
+                        <div class="summary-row">
+                            <div>Marketing</div>
+                            <div>23</div>
+                            <div>20</div>
+                            <div>1</div>
+                            <div>1</div>
+                            <div>1</div>
+                        </div>
+
+                        <div class="summary-row">
+                            <div>HR</div>
+                            <div>15</div>
+                            <div>14</div>
+                            <div>0</div>
+                            <div>1</div>
+                            <div>0</div>
+                        </div>
+
+                        <div class="summary-row">
+                            <div>Sales</div>
+                            <div>22</div>
+                            <div>21</div>
+                            <div>1</div>
+                            <div>0</div>
+                            <div>0</div>
+                        </div>
+
+                        <div class="summary-row">
+                            <div>Design</div>
+                            <div>22</div>
+                            <div>20</div>
+                            <div>1</div>
+                            <div>1</div>
+                            <div>0</div>
+                        </div>
+
+                        <div class="summary-row">
+                            <div>Testing</div>
+                            <div>22</div>
+                            <div>14</div>
+                            <div>3</div>
+                            <div>2</div>
+                            <div>3</div>
+                        </div>
+
+                        <div class="summary-row">
+                            <div>Content creation</div>
+                            <div>12</div>
+                            <div>8</div>
+                            <div>1</div>
+                            <div>1</div>
+                            <div>2</div>
+                        </div>
+
+                        <div class="summary-row">
+                            <div>Management</div>
+                            <div>29</div>
+                            <div>19</div>
+                            <div>1</div>
+                            <div>1</div>
+                            <div>9</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/attendance.js"></script>
+    <script src="./script2.js"></script>
+</body>
+</html>
