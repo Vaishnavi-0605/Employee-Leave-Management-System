@@ -1,20 +1,135 @@
-:root{
-    --background-col : #372590;
+:root {
+    /* Old */
+    --background-col: #372590;
     --bg-col-light: #fffef5;
-    --text-col : #000000;
-    --cards : #F7F5EA;
-    --s-text : #163455;
-    --accents : #345376;
-    --accent : #5e98db;
-    --hover : #E8DF76;
-    --success : #2DC73D;
-    --warn : #E8DF76;
-    --err : #FF5E57;
-    --text-light : #F7F5EA;
-    --border-radius : 18px;
-    --headings-family : "Manrope", sans-serif;
-    --content-family : "Inter", sans-serif;
+    --text-col: #000000;
+    --cards: #F7F5EA;
+    --s-text: #163455;
+    --accents: #345376;
+    --accent: #5e98db;
+    --hover: #E8DF76;
+    --success: #2DC73D;
+    --warn: #E8DF76;
+    --err: #FF5E57;
+    --text-light: #F7F5EA;
 
+    /* NEW */
+    --page-bg: whitesmoke;
+    --card-bg: #ffffff;
+
+    --search-border: #444;
+    --search-icon: gray;
+
+    --menu-hover: rgba(255, 255, 255, 0.08);
+    --menu-active-bg: #1a114c;
+    --menu-active-border: white;
+
+    --shadow: rgba(0, 0, 0, 0.08);
+    --shadow-hover: rgba(0, 0, 0, 0.15);
+
+    --heading-primary: #1e1e1e;
+    --heading-secondary: #3e3e3e;
+
+    --border-light: #cfcfcf;
+    --border-lighter: #ececec;
+    --border-dashed: #e5e5e5;
+
+    --text-muted: gray;
+
+    --link-primary: #6F8FB3;
+    --link-secondary: #7b61ff;
+
+    --avatar-text: white;
+    
+    /* Leave tags */
+    --casual-bg: #eee5ff;
+    --casual-text: #7b61ff;
+    
+    --sick-bg: #dff8e5;
+    --sick-text: #2ca44f;
+
+    --earned-bg: #fff0d9;
+    --earned-text: #f08c00;
+    
+    --rejected-bg: #ffe1e1;
+    --rejected-color : #cf2c2c;
+    
+    --pending-bg : #e8df76;
+    --pending-bg-light : #fffbd1;
+    --pending-text :#f08c00;
+
+       /* Footer */
+    --footer-bg : #291a74;
+
+        /* TEXTS */
+    --border-radius : 18px; 
+    --headings-family : "Manrope", sans-serif; --content-family : "Inter", sans-serif;
+}
+
+[data-theme="dark"] {
+    /* Main backgrounds */
+    --background-col: #1f1747;      
+    --page-bg: #0f1117;            
+    --bg-col-light: #1b1f2b;       
+    --card-bg: #1b1f2b;
+
+    /* Text */
+    --text-col: #f5f7fa;
+    --text-light: #f5f7fa;
+    --text-muted: #9ca3af;
+
+    /* Brand accents */
+    --accent: #7cb6ff;
+    --accents: #5d8fcb;
+    --hover: #ffd166;
+
+    /* Status */
+    --success: #4ade80;
+    --warn: #facc15;
+    --err: #f87171;
+
+    /* Inputs / borders */
+    --search-border: #374151;
+    --search-icon: #9ca3af;
+    --input-border: #4b5563;
+
+    --border-light: #3a3f4b;
+    --border-lighter: #2d3340;
+    --border-dashed: #404756;
+
+    /* Sidebar */
+    --menu-hover: rgba(255,255,255,0.08);
+    --menu-active-bg: #31206d;
+    --menu-active-border: #ffffff;
+
+    /* Headings */
+    --heading-primary: #ffffff;
+    --heading-secondary: #d6d9df;
+
+    /* Shadows */
+    --shadow: rgba(0, 0, 0, 0.35);
+    --shadow-hover: rgba(0, 0, 0, 0.5);
+
+    /* Links */
+    --link-primary: #7cb6ff;
+    --link-secondary: #9d7dff;
+
+    /* Leave type badges */
+    --casual-bg: #3b2d63;
+    --casual-text: #c4b5fd;
+
+    --sick-bg: #1f4a38;
+    --sick-text: #86efac;
+
+    --earned-bg: #5b4716;
+    --earned-text: #fcd34d;
+
+    --rejected-bg: #5a2626;
+
+    --avatar-text: #ffffff;
+
+    /* KPI cards */
+    --pending-bg : #cdbf24;
 }
 
 *{
@@ -22,12 +137,13 @@
     padding: 0;
 }
 body{
-    background-color: whitesmoke;
+    background-color: var(--page-bg);
+    color: var(--text-col);
 }
 .cont{
     margin-bottom: 80px;
     padding-bottom: 100px;
-    background-color: whitesmoke;
+    background-color: var(--page-bg);
     font-family: var(--content-family);
 }
 a{
@@ -38,7 +154,7 @@ a{
 /* ------------------------------------------------------------NAV BAR------------------------------------------------- */
 .nav-bar{
     background-color: var(--background-col);
-    color: #fffef5;
+    color: var(--text-light);
     display: flex;
     flex: 1;
     justify-content: space-between;
@@ -75,7 +191,7 @@ a{
     /* width: 280px; */
     display: flex;
     align-items: center;
-    border: 2px solid #444;
+    border: 1px solid var(--search-border);
     border-radius: 30px;
     padding: 0 15px;
     background: var(--bg-col-light);
@@ -90,7 +206,7 @@ a{
     border-radius: 30px;
 }
 .search-bar i {
-    color: gray;
+    color: var(--search-icon);
 }
 .nav-bar i {
     transition: all 0.25s ease;
@@ -103,7 +219,7 @@ a{
 
 /* --------------------------------------------------------------------SIDEBAR-------------------------------------------- */
 .main-area{
-    background-color: whitesmoke;
+    background-color: var(--page-bg);
 }
 aside{
     padding: 0;
@@ -141,14 +257,14 @@ aside{
 }
 
 .menu-item:hover {
-    background-color: rgba(255,255,255,0.08);
+    background-color: var(--menu-hover);
     padding-left: 30px;
 }
 
 .menu-item.active {
-    background-color: #1a114c;
-    border-left: 4px solid white;
-    color: white;
+    background-color: var(--menu-active-bg);
+    border-left: 4px solid var(--menu-active-border);
+    color: var(--menu-active-border);
 }
 
 .sidebar {
@@ -162,17 +278,17 @@ aside{
 .sidebar.collapsed span {
     display: none;
 }
-/* .main-content {
+.content {
     margin-left: 220px;
-    transition: margin-left 0.3s ease;
+    transition: all 0.3s ease;
 }
-.main-content.expanded {
+.content.expanded {
     margin-left: 70px;
-} */
+}
 /* -------------------------------------------------------------------------KPI CARDS-------------------------------------------- */
 
 .content{
-    background-color: whitesmoke;
+    background-color: var(--page-bg);
     margin-left: 250px;
     margin-top: 0px;  
     padding: 20px;
@@ -181,6 +297,7 @@ aside{
 .kpi-cards{
     font-family: var(--content-family);
     margin-bottom: 100px;
+    color: var(--text-col) ;
 }
 .kpi-container {
     width: 80%;
@@ -193,7 +310,7 @@ aside{
 .kpi-card {
     border-radius: 18px;
     padding: 24px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 6px 16px var(--shadow);
     height: 100%;
     
     transition: all 0.25s ease;
@@ -205,9 +322,8 @@ aside{
 
 .kpi-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 24px var(--shadow-hover);
     background: var(--bg-col-light);
-
 }
 
 .kpi-card i {
@@ -219,7 +335,7 @@ aside{
     text-align: center;
 }
 .pending>i{
-    color: #E8DF76;
+    color: var(--pending-bg);
 }
 .approved>i{
     color: var(--success);
@@ -229,15 +345,16 @@ aside{
 }
 .kpi-card h3 {
     font-size: 20px;
-    color: #3e3e3e;
+    color: var(--heading-secondary);
     font-weight: 600;
+    background-color: var(--page-bg);
 }
 
 .kpi-card h1 {
     font-size: 42px;
     font-weight: 700;
     margin-top: 8px;
-    color: #1e1e1e;
+    color: var(--heading-primary);
 }
 
 .kpi-card {
@@ -267,15 +384,15 @@ aside{
 .leaves-card {
     border-radius: 18px;
     padding: 20px;
-    box-shadow: 0 6px 16px rgba(0,0,0,.08);
+    box-shadow: 0 6px 16px var(--shadow);
 }
 .calendar-soon {
     height: 320px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: gray;
-    border: 2px dashed #e5e5e5;
+    color: var(--text-muted);
+    border: 2px dashed var(--border-dashed);
     border-radius: 12px;
     margin-top: 20px;
 }
@@ -290,7 +407,7 @@ aside{
 
 .leaves-header a {
     text-decoration: underline;
-    color: #6F8FB3;
+    color: var(--link-primary);
 }
 
 .leave-item {
@@ -298,7 +415,7 @@ aside{
     justify-content: space-between;
     align-items: center;
     padding: 18px 0;
-    border-bottom: 1px solid #cfcfcf;
+    border-bottom: 1px solid var(--border-light);
 }
 
 .employee {
@@ -312,7 +429,7 @@ aside{
     height: 42px;
     border-radius: 50%;
     background: var(--accents);
-    color: white;
+    color: var(--avatar-text);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -325,7 +442,7 @@ aside{
 
 .employee p {
     margin: 2px 0 0;
-    color: gray;
+    color: var(--text-muted);
     font-size: 16px;
 }
 
@@ -336,18 +453,22 @@ aside{
 }
 
 .casual {
-    background: #eee4ff;
-    color: #562fc1;
+     background: var(--casual-bg);
+    color: var(--casual-text);
 }
 
 .sick {
-    background: #d9f7e5;
-    color: #17934c;
+     background: var(--sick-bg);
+    color: var(--sick-text);
 }
 
 .earned {
-    background: #fff2d8;
-    color: #d97706;
+     background: var(--earned-bg);
+    color: var(--earned-text);
+}
+
+.rejected{
+    background: var(--rejected-bg);
 }
 
 /* ------------------------TABLE AREA-------------------------------- */
@@ -381,13 +502,13 @@ aside{
     grid-template-columns: 2fr 1.5fr 1.5fr 1.3fr 1.3fr 1.3fr 40px;
     align-items: center;
     padding: 14px 0;
-    border-bottom: 1px solid #ececec;
+    border-bottom: 1px solid var(--border-light);
 }
 
 .table-heading {
     font-weight: 600;
     font-size: 14px;
-    color: gray;
+    color: var(--text-muted);
 }
 
 .employee {
@@ -401,7 +522,7 @@ aside{
     height: 34px;
     border-radius: 50%;
     background: var(--accents);
-    color: white;
+    color: var(--avatar-text);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -415,18 +536,18 @@ aside{
 }
 
 .casual {
-    background: #eee5ff;
-    color: #7b61ff;
+    background: var(--casual-bg);
+    color: var(--casual-text);
 }
 
 .sick {
-    background: #dff8e5;
-    color: #2ca44f;
+    background: var(--sick-bg);
+    color: var(--sick-text);
 }
 
 .earned {
-    background: #fff0d9;
-    color: #f08c00;
+    background: var(--earned-bg);
+    color: var(--earned-text);
 }
 
 .approved {
@@ -435,25 +556,32 @@ aside{
 }
 
 .pending {
-    background: #fff0d9;
-    color: #f08c00;
+    background: var(--pending-bg-light);
+    color: var(--pending-text);
 }
 
 .rejected {
-    background: #ffe1e1;
-    color: var(--err);
+    background: var(--rejected-bg);
+    color: var(--rejected-color);
+}
+
+.kpi-card,
+.calendar-card,
+.leaves-card,
+.recent-leaves {
+    background-color: var(--card-bg);
 }
 
 /* -------------------FOOTER-------------------------- */
 
-/* footer{
+footer{
     padding: 20px;
     color: var(--text-light);
-    background-color: var(--background-col);
+    background-color: var(--footer-bg);
     text-align: center;
     width: 100%;
 
     position: fixed;
     bottom: 0;
-} */
+}
 

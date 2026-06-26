@@ -15,20 +15,131 @@
     --border-radius : 18px;
     --headings-family : "Manrope", sans-serif;
     --content-family : "Inter", sans-serif;
+    --footer-bg : #291a74;
 
+    --page-bg: whitesmoke;
+    --card-bg: #ffffff;
+
+    /* Search */
+    --search-border: #444;
+    --search-icon: gray;
+
+    /* Sidebar */
+    --menu-hover: rgba(255, 255, 255, 0.08);
+    --menu-active-bg: #1a114c;
+    --menu-active-border: #ffffff;
+
+    /* Text */
+    --heading-primary: #1e1e1e;
+    --heading-secondary: #555;
+    --text-muted: gray;
+
+    /* Borders & Shadows */
+    --border-light: #e5e5e5;
+    --shadow: rgba(0, 0, 0, 0.08);
+    --shadow-hover: rgba(0, 0, 0, 0.15);
+
+    /* Attendance pills */
+    --green-pill-bg: #dff5e5;
+    --green-pill-text: #239b56;
+
+    --red-pill-bg: #fde2e2;
+    --red-pill-text: #d64545;
+
+    --orange-pill-bg: #fff0d8;
+    --orange-pill-text: #d98200;
+
+    --purple-pill-bg: #eee4ff;
+    --purple-pill-text: #7b61ff;
+
+    /* Summary table */
+    --summary-head-bg: #bbcde871;
+    --table-row-hover: #fafafa;
+
+}
+[data-theme="dark"] {
+    /* Main backgrounds */
+    --background-col: #1f1747;      
+    --page-bg: #0f1117;            
+    --bg-col-light: #1b1f2b;       
+    --card-bg: #1b1f2b;
+
+    /* Text */
+    --text-col: #f5f7fa;
+    --text-light: #f5f7fa;
+    --text-muted: #9ca3af;
+
+    /* Brand accents */
+    --accent: #7cb6ff;
+    --accents: #5d8fcb;
+    --hover: #ffd166;
+
+    /* Status */
+    --success: #4ade80;
+    --warn: #facc15;
+    --err: #f87171;
+
+    /* Inputs / borders */
+    --search-border: #374151;
+    --search-icon: #9ca3af;
+    --input-border: #4b5563;
+
+    --border-light: #3a3f4b;
+    --border-lighter: #2d3340;
+    --border-dashed: #404756;
+
+    /* Sidebar */
+    --menu-hover: rgba(255,255,255,0.08);
+    --menu-active-bg: #31206d;
+    --menu-active-border: #ffffff;
+
+    /* Headings */
+    --heading-primary: #ffffff;
+    --heading-secondary: #d6d9df;
+
+    /* Shadows */
+    --shadow: rgba(0, 0, 0, 0.35);
+    --shadow-hover: rgba(0, 0, 0, 0.5);
+
+    /* Links */
+    --link-primary: #7cb6ff;
+    --link-secondary: #9d7dff;
+
+    /* Leave type badges */
+    --casual-bg: #3b2d63;
+    --casual-text: #c4b5fd;
+
+    --sick-bg: #1f4a38;
+    --sick-text: #86efac;
+
+    --earned-bg: #5b4716;
+    --earned-text: #fcd34d;
+
+    --rejected-bg: #5a2626;
+
+    --avatar-text: #ffffff;
+
+    /* KPI cards */
+    --pending-bg : #cdbf24;
+    --table-header-bg: #2b3550;
+    --table-row-hover: #2b3550;
 }
 
 *{
     margin: 0;
     padding: 0;
 }
-body{
-    background-color: whitesmoke;
+body,
+.box,
+.main-area,
+.content-box {
+    background-color: var(--page-bg);
+    color: var(--text-col);
 }
+
 .box{
     margin-bottom: 80px;
     padding-bottom: 100px;
-    background-color: whitesmoke;
     font-family: var(--content-family);
 }
 
@@ -99,9 +210,6 @@ body{
 }
 
 /* --------------------------------------------------------------------SIDEBAR-------------------------------------------- */
-.main-area{
-    background-color: whitesmoke;
-}
 aside{
     padding: 0;
     margin: 0;
@@ -138,13 +246,13 @@ aside{
 }
 
 .menu-item:hover {
-    background-color: rgba(255,255,255,0.08);
+    background-color: var(--menu-hover);
     padding-left: 30px;
 }
 
 .menu-item.active {
-    background-color: #1a114c;
-    border-left: 4px solid white;
+    background-color: var(--menu-active-bg);
+    border-left: 4px solid var(--menu-active-border);
     color: white;
 }
 
@@ -160,9 +268,16 @@ aside{
     display: none;
 }
 
+.content {
+    margin-left: 220px;
+    transition: all 0.3s ease;
+}
+.content.expanded {
+    margin-left: 70px;
+}
+
 /* ------------------------------KPI CARDS ------------------------------ */
 .content-box{
-    background-color: whitesmoke;
     margin-left: 250px;
     margin-top: 0px;  
     padding: 20px;
@@ -178,7 +293,8 @@ aside{
 .attendance-card{
     padding:24px;
     border-radius:16px;
-    box-shadow:0 4px 10px rgba(0,0,0,.08);
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 10px var(--shadow);
     transition:.2s;
     text-align: center;
 }
@@ -189,13 +305,14 @@ aside{
 }
 
 .attendance-card h4{
-    color:#555;
+    color: var(--heading-secondary);
     margin-bottom:12px;
 }
 
 .attendance-card h1{
     font-size:42px;
     margin-bottom:12px;
+    color: var(--heading-primary);
 }
 
 .green-pill,
@@ -208,30 +325,32 @@ aside{
     font-weight:600;
 }
 
-.green-pill{
-    background:#dff5e5;
-    color:#239b56;
+.green-pill {
+    background: var(--green-pill-bg);
+    color: var(--green-pill-text);
 }
 
-.red-pill{
-    background:#fde2e2;
-    color:#d64545;
+.red-pill {
+    background: var(--red-pill-bg);
+    color: var(--red-pill-text);
 }
 
-.orange-pill{
-    background:#fff0d8;
-    color:#d98200;
+.orange-pill {
+    background: var(--orange-pill-bg);
+    color: var(--orange-pill-text);
 }
 
-.purple-pill{
-    background:#eee4ff;
-    color:#7b61ff;
+.purple-pill {
+    background: var(--purple-pill-bg);
+    color: var(--purple-pill-text);
 }
 
 /* --------------------------------------------------SUMMARY TABLE---------------------------- */
 
 .summary-table{
     /* background:#f7f5ea; */
+    background: var(--card-bg);
+    box-shadow: 0 4px 10px var(--shadow);
     border-radius:16px;
     overflow:hidden;
     margin-top:24px;
@@ -247,10 +366,21 @@ aside{
 }
 
 .summary-head{
-    background:#bbcde871;
+    background: var(--summary-head-bg);
     font-weight:600;
 }
 
 .summary-row{
-    border-top:1px solid #e5e5e5;
+    border-top:1px solid var(--border-light);
+}
+
+footer{
+    padding: 20px;
+    color: var(--text-light);
+    background-color: var(--footer-bg);
+    text-align: center;
+    width: 100%;
+
+    position: fixed;
+    bottom: 0;
 }

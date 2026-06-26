@@ -6,6 +6,7 @@
     --s-text : #163455;
     --accents : #345376;
     --accent : #5e98db;
+    --accent2 : #2a4f7a53;
     --hover : #E8DF76;
     --success : #2DC73D;
     --warn : #E8DF76;
@@ -14,7 +15,114 @@
     --border-radius : 18px;
     --headings-family : "Manrope", sans-serif;
     --content-family : "Inter", sans-serif;
+    --footer-bg : #291a74;
 
+    --page-bg: whitesmoke;
+    --card-bg: #ffffff;
+
+    /* Search */
+    --search-border: #444;
+    --search-icon: gray;
+
+    /* Sidebar */
+    --menu-hover: rgba(255, 255, 255, 0.08);
+    --menu-active-bg: #1a114c;
+    --menu-active-border: #ffffff;
+
+    /* Text */
+    --heading-primary: #1e1e1e;
+    --heading-secondary: #555;
+    --text-muted: gray;
+
+    /* Borders & Shadows */
+    --border-light: #e5e5e5;
+    --shadow: rgba(0, 0, 0, 0.08);
+    --shadow-hover: rgba(0, 0, 0, 0.15);
+
+    /* Attendance pills */
+    --green-pill-bg: #dff5e5;
+    --green-pill-text: #239b56;
+
+    --red-pill-bg: #fde2e2;
+    --red-pill-text: #d64545;
+
+    --orange-pill-bg: #fff0d8;
+    --orange-pill-text: #d98200;
+
+    --purple-pill-bg: #eee4ff;
+    --purple-pill-text: #7b61ff;
+
+    /* Summary table */
+    --summary-head-bg: #bbcde871;
+    --table-row-hover: #fafafa;
+
+}
+[data-theme="dark"] {
+    /* Main backgrounds */
+    --background-col: #1f1747;      
+    --page-bg: #0f1117;            
+    --bg-col-light: #1b1f2b;       
+    --card-bg: #1b1f2b;
+
+    /* Text */
+    --text-col: #f5f7fa;
+    --text-light: #f5f7fa;
+    --text-muted: #9ca3af;
+
+    /* Brand accents */
+    --accent: #7cb6ff;
+    --accents: #5d8fcb;
+    --hover: #ffd166;
+
+    /* Status */
+    --success: #4ade80;
+    --warn: #facc15;
+    --err: #f87171;
+
+    /* Inputs / borders */
+    --search-border: #374151;
+    --search-icon: #9ca3af;
+    --input-border: #4b5563;
+
+    --border-light: #3a3f4b;
+    --border-lighter: #2d3340;
+    --border-dashed: #404756;
+
+    /* Sidebar */
+    --menu-hover: rgba(255,255,255,0.08);
+    --menu-active-bg: #31206d;
+    --menu-active-border: #ffffff;
+
+    /* Headings */
+    --heading-primary: #ffffff;
+    --heading-secondary: #d6d9df;
+
+    /* Shadows */
+    --shadow: rgba(0, 0, 0, 0.35);
+    --shadow-hover: rgba(0, 0, 0, 0.5);
+
+    /* Links */
+    --link-primary: #7cb6ff;
+    --link-secondary: #9d7dff;
+
+    /* Leave type badges */
+    --casual-bg: #3b2d63;
+    --casual-text: #c4b5fd;
+
+    --sick-bg: #1f4a38;
+    --sick-text: #86efac;
+
+    --earned-bg: #5b4716;
+    --earned-text: #fcd34d;
+
+    --rejected-bg: #5a2626;
+
+    --avatar-text: #ffffff;
+
+    /* KPI cards */
+    --pending-bg : #cdbf24;
+    --table-header-bg: #2b3550;
+    --table-row-hover: #1d1f25;
 }
 
 *{
@@ -22,17 +130,24 @@
     padding: 0;
 }
 body{
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
 }
 .cont{
     margin-bottom: 80px;
     padding-bottom: 100px;
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
     font-family: var(--content-family);
 }
 a{
     text-decoration: none;
     color: var(--text-light);
+}
+body,
+.cont,
+.main-area,
+.profile-page {
+    background-color: var(--page-bg);
+    color: var(--text-col);
 }
 
 /* ------------------------------------------------------------NAV BAR------------------------------------------------- */
@@ -103,7 +218,7 @@ a{
 
 /* --------------------------------------------------------------------SIDEBAR-------------------------------------------- */
 .main-area{
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
 }
 aside{
     padding: 0;
@@ -172,7 +287,7 @@ aside{
 /* -------------------------------------------------------------------------PFP PAGE-------------------------------------------- */
 
 .profile-page{
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
     margin-left: 250px;
     margin-top: 0px;  
     padding: 20px;
@@ -199,8 +314,8 @@ aside{
     width:120px;
     height:120px;
     border-radius:50%;
-    background:#6F8FB3;
-    /* color:#fff; */
+    background: var(--accent);
+    color: var(--avatar-text);
     font-size:48px;
     display:flex;
     justify-content:center;
@@ -222,8 +337,9 @@ aside{
     padding:16px;
     border:none;
     border-radius:10px;
-    background:#163455;
-    color:#fff;
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 10px var(--shadow);
+    color:var(--text-col);
     cursor:pointer;
     font-size: 18px;
 }
@@ -239,7 +355,8 @@ aside{
 }
 
 .card{
-    /* background:#f7f5ea; */
+    background:var(--table-header-bg);
+    color: var(--text-col);
     border-radius:18px;
     padding:24px;
     box-shadow:0 4px 10px rgba(0,0,0,.08);
@@ -275,12 +392,6 @@ aside{
     margin: 20px;
     font-weight: 700;
 }
-h2{
-    color: var(--s-text);
-}
-p{
-    color:#1e1e1e;
-}
 
 .save-btn{
     margin-top:20px;
@@ -298,4 +409,15 @@ p{
 
 .save-btn:active{
     background: var(--accents);
+}
+
+footer{
+    padding: 20px;
+    color: var(--text-light);
+    background-color: var(--footer-bg);
+    text-align: center;
+    width: 100%;
+
+    position: fixed;
+    bottom: 0;
 }

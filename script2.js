@@ -31,9 +31,6 @@ document.querySelector(".profile").addEventListener("click", () => {
     window.location.href = "profile.html";
 });
 
-document.querySelector(".toggle-dn").addEventListener("click", () => {
-    alert("Dark mode coming soon!");
-});
 
 document.querySelector(".notif").addEventListener("click", () => {
     alert("No new notifications.");
@@ -59,5 +56,24 @@ const mainContent = document.querySelector("#main-cont");
 
 menuBtn.addEventListener("click", () => {
     sidebar.classList.toggle("collapsed");
-    // mainContent.classList.toggle("expanded");
+    mainContent.classList.toggle("expanded");
 });
+
+const themeBtn = document.getElementById("theme-toggle");
+
+themeBtn.addEventListener("click", () => {
+    const html = document.documentElement;
+
+    if (html.getAttribute("data-theme") === "dark") {
+        html.removeAttribute("data-theme");
+        localStorage.setItem("theme", "light");
+    } else {
+        html.setAttribute("data-theme", "dark");
+        localStorage.setItem("theme", "dark");
+    }
+});
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "dark") {
+    document.documentElement.setAttribute("data-theme", "dark");
+}

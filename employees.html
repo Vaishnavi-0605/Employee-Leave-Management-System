@@ -89,7 +89,7 @@
                     </div>
                 </aside>
 
-                <div class="employees-page">
+                <div class="employees-page content" id="main-cont">
                     <div class="filters">
                         <input type="text" placeholder="Search employee...">
 
@@ -105,7 +105,9 @@
                             <option>All Status</option>
                         </select>
 
-                        <button>Add Employee</button>
+                        <button id="addEmployeeBtn">
+                            Add Employee
+                        </button>
                         <button class="exp">Export</button>
                     </div>
 
@@ -115,12 +117,12 @@
                         <div class="table-row table-header">
                             <div>Employee</div>
                             <div>Department</div>
-                            <div>Type</div>
-                            <div>From</div>
-                            <div>To</div>
-                            <div>Days</div>
+                            <div>Attendance</div>
+                            <div>Position</div>
+                            <div>Date Joined</div>
                             <div>Status</div>
-                            <div>Applied</div>
+                            <div>Email ID</div>
+                            <div>Leaves</div>
                             <div>Actions</div>
                         </div>
 
@@ -132,23 +134,21 @@
                                     <p>EMP001</p>
                                 </div>
                             </div>
-                            <div>Marketing</div>
+                            <div class="dept">Marketing</div>
                             <div>
-                                <span class="tag casual">
-                                    Casual Leave
-                                </span>
+                                48%
                             </div>
-                            <div>Jun 10</div>
-                            <div>Jun 11</div>
+                            <div>Sr. Associate</div>
+                            <div>Jun, 08 2012</div>
 
-                            <div>2</div>
+                            <div>active</div>
+                            <div>abc@comapny.com</div>
                             <div>
                                 <span class="tag approved">
                                     Approved
                                 </span>
                             </div>
-                            <div>Jun 8</div>
-                            <div>
+                            <div class="act-icon">
                                 <i class="bi bi-three-dots-vertical"></i>
                             </div>
 
@@ -159,23 +159,21 @@
                                     <p>EMP002</p>
                                 </div>
                             </div>
-                            <div>Finance</div>
+                            <div class="dept">Finance</div>
                             <div>
-                                <span class="tag casual">
-                                    Casual Leave
-                                </span>
+                                99%
                             </div>
-                            <div>Jun 10</div>
-                            <div>Jun 11</div>
+                            <div>Finance</div>
+                            <div>Sept, 9 2016</div>
 
-                            <div>2</div>
+                            <div>active</div>
+                            <div>abc@comapny.com</div>
                             <div>
                                 <span class="tag approved">
                                     Approved
                                 </span>
                             </div>
-                            <div>Jun 8</div>
-                            <div>
+                            <div class="act-icon">
                                 <i class="bi bi-three-dots-vertical"></i>
                             </div>
 
@@ -186,23 +184,21 @@
                                     <p>EMP003</p>
                                 </div>
                             </div>
-                            <div>Design</div>
+                            <div class="dept">Design</div>
                             <div>
-                                <span class="tag casual">
-                                    Casual Leave
-                                </span>
+                                72%
                             </div>
-                            <div>Jun 10</div>
-                            <div>Jun 11</div>
+                            <div>UI UX Designer</div>
+                            <div>Sept, 9 2016</div>
 
-                            <div>2</div>
+                            <div>active</div>
+                            <div>abc@comapny.com</div>
                             <div>
                                 <span class="tag rejected">
                                     Rejected
                                 </span>
                             </div>
-                            <div>Jun 8</div>
-                            <div>
+                            <div class="act-icon">
                                 <i class="bi bi-three-dots-vertical"></i>
                             </div>
 
@@ -213,23 +209,21 @@
                                     <p>EMP004</p>
                                 </div>
                             </div>
-                            <div>HR</div>
+                            <div class="dept">HR</div>
                             <div>
-                                <span class="tag casual">
-                                    Casual Leave
-                                </span>
+                                77%
                             </div>
-                            <div>Jun 10</div>
-                            <div>Jun 11</div>
+                            <div>HR intern</div>
+                            <div>March, 4 2022</div>
 
-                            <div>2</div>
+                            <div>active</div>
+                            <div>abc@comapny.com</div>
                             <div>
                                 <span class="tag approved">
                                     Approved
                                 </span>
                             </div>
-                            <div>Jun 8</div>
-                            <div>
+                            <div class="act-icon">
                                 <i class="bi bi-three-dots-vertical"></i>
                             </div>
 
@@ -240,23 +234,21 @@
                                     <p>EMP005</p>
                                 </div>
                             </div>
-                            <div>Engineering</div>
+                            <div class="dept">Engineering</div>
                             <div>
-                                <span class="tag casual">
-                                    Casual Leave
-                                </span>
+                                89%
                             </div>
-                            <div>Jun 10</div>
-                            <div>Jun 11</div>
+                            <div>Software Engineer</div>
+                            <div>Jan, 17 2020</div>
 
-                            <div>2</div>
+                            <div>active</div>
+                            <div>abc@comapny.com</div>
                             <div>
                                 <span class="tag pending">
                                     Pending
                                 </span>
                             </div>
-                            <div>Jun 8</div>
-                            <div>
+                            <div class="act-icon">
                                 <i class="bi bi-three-dots-vertical"></i>
                             </div>
 
@@ -267,23 +259,21 @@
                                     <p>EMP006</p>
                                 </div>
                             </div>
-                            <div>Sales</div>
+                            <div class="dept">Sales</div>
                             <div>
-                                <span class="tag casual">
-                                    Casual Leave
-                                </span>
+                                98%
                             </div>
-                            <div>Jun 10</div>
-                            <div>Jun 11</div>
+                            <div>Jr. Associate</div>
+                            <div>July, 09 2025</div>
 
-                            <div>2</div>
+                            <div>active</div>
+                            <div>abc@comapny.com</div>
                             <div>
                                 <span class="tag rejected">
                                     Rejected
                                 </span>
                             </div>
-                            <div>Jun 8</div>
-                            <div>
+                            <div class="act-icon">
                                 <i class="bi bi-three-dots-vertical"></i>
                             </div>
 
@@ -294,23 +284,21 @@
                                     <p>EMP007</p>
                                 </div>
                             </div>
-                            <div>Marketing</div>
+                            <div class="dept">Marketing</div>
                             <div>
-                                <span class="tag casual">
-                                    Casual Leave
-                                </span>
+                                88%
                             </div>
-                            <div>Jun 10</div>
-                            <div>Jun 11</div>
+                            <div>Sr. Associate</div>
+                            <div>Jun, 08 2013</div>
 
-                            <div>2</div>
+                            <div>active</div>
+                            <div>abc@comapny.com</div>
                             <div>
                                 <span class="tag pending">
                                     Pending
                                 </span>
                             </div>
-                            <div>Jun 8</div>
-                            <div>
+                            <div class="act-icon">
                                 <i class="bi bi-three-dots-vertical"></i>
                             </div>
 
@@ -324,6 +312,43 @@
         <</div>
 
     </div>
+    <div id="employeeModal" class="modal-overlay">
+        <div class="modal-box">
+            <h2>Add New Employee</h2>
+
+            <form class="employee-form">
+                <input type="text" placeholder="Full Name" id="empName">
+                <input type="text" placeholder="Employee ID" id="empId">
+
+                <select id="empDept">
+                    <option>Marketing</option>
+                    <option>Engineering</option>
+                    <option>HR</option>
+                    <option>Finance</option>
+                </select>
+
+                <input type="text" placeholder="Position" id="posn">
+                <input type="email" placeholder="Email" id="empMail">
+                <input type="tel" placeholder="Phone Number" id="empPh">
+                <input type="date" id="empJoinDate">
+
+                <div class="modal-buttons">
+                    <button type="button" id="closeModal">
+                        Cancel
+                    </button>
+
+                    <button type="submit" id="save-emp-btn">
+                        Add Employee
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <p>@Employee Management System</p>
+        </div>
+    </footer>
 
     <script src="./js/empl.js"></script>
     <script src="./script2.js"></script>
