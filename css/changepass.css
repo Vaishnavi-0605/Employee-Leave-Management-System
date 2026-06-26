@@ -1,0 +1,220 @@
+:root{
+    --background-col : #372590;
+    --bg-col-light: #fffef5;
+    --text-col : #000000;
+    --cards : #F7F5EA;
+    --s-text : #163455;
+    --accents : #345376;
+    --accent : #5e98db;
+    --accent2 : #2a4f7a53;
+    --hover : #E8DF76;
+    --success : #2DC73D;
+    --warn : #E8DF76;
+    --err : #FF5E57;
+    --text-light : #F7F5EA;
+    --border-radius : 18px;
+    --headings-family : "Manrope", sans-serif;
+    --content-family : "Inter", sans-serif;
+    --footer-bg : #291a74;
+
+    --page-bg: whitesmoke;
+    --card-bg: #ffffff;
+
+    /* Search */
+    --search-border: #444;
+    --search-icon: gray;
+
+    /* Sidebar */
+    --menu-hover: rgba(255, 255, 255, 0.08);
+    --menu-active-bg: #1a114c;
+    --menu-active-border: #ffffff;
+
+    /* Text */
+    --heading-primary: #1e1e1e;
+    --heading-secondary: #555;
+    --text-muted: gray;
+
+    /* Borders & Shadows */
+    --border-light: #e5e5e5;
+    --shadow: rgba(20, 20, 20, 0.501);
+    --shadow-hover: rgba(0, 0, 0, 0.15);
+    --border-dashed: #404756;
+
+    /* Attendance pills */
+    --green-pill-bg: #dff5e5;
+    --green-pill-text: #239b56;
+
+    --red-pill-bg: #fde2e2;
+    --red-pill-text: #d64545;
+
+    --orange-pill-bg: #fff0d8;
+    --orange-pill-text: #d98200;
+
+    --purple-pill-bg: #eee4ff;
+    --purple-pill-text: #7b61ff;
+
+    /* Summary table */
+    --summary-head-bg: #bbcde871;
+    --table-row-hover: #fafafa;
+
+}
+[data-theme="dark"] {
+    /* Main backgrounds */
+    --background-col: #1f1747;      
+    --page-bg: #0f1117;            
+    --bg-col-light: #1b1f2b;       
+    --card-bg: #1b1f2b;
+
+    /* Text */
+    --text-col: #f5f7fa;
+    --text-light: #f5f7fa;
+    --text-muted: #9ca3af;
+
+    /* Brand accents */
+    --accent: #7cb6ff;
+    --accents: #5d8fcb;
+    --hover: #ffd166;
+
+    /* Status */
+    --success: #4ade80;
+    --warn: #facc15;
+    --err: #f87171;
+
+    /* Inputs / borders */
+    --search-border: #374151;
+    --search-icon: #9ca3af;
+    --input-border: #4b5563;
+
+    --border-light: #3a3f4b;
+    --border-lighter: #2d3340;
+    --border-dashed: #404756;
+
+    /* Sidebar */
+    --menu-hover: rgba(255,255,255,0.08);
+    --menu-active-bg: #31206d;
+    --menu-active-border: #ffffff;
+
+    /* Headings */
+    --heading-primary: #ffffff;
+    --heading-secondary: #d6d9df;
+
+    /* Shadows */
+    --shadow: rgba(0, 0, 0, 0.35);
+    --shadow-hover: rgba(0, 0, 0, 0.5);
+
+    /* Links */
+    --link-primary: #7cb6ff;
+    --link-secondary: #9d7dff;
+
+    /* Leave type badges */
+    --casual-bg: #3b2d63;
+    --casual-text: #c4b5fd;
+
+    --sick-bg: #1f4a38;
+    --sick-text: #86efac;
+
+    --earned-bg: #5b4716;
+    --earned-text: #fcd34d;
+
+    --rejected-bg: #5a2626;
+
+    --avatar-text: #ffffff;
+
+    /* KPI cards */
+    --pending-bg : #cdbf24;
+    --table-header-bg: #2b3550;
+    --table-row-hover: #2b3550;
+}
+
+.container{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--page-bg);
+    padding: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.changepass{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.changepass form{
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: min(500px, 90%);
+    padding: 3rem 2rem;
+    border-radius: 24px;
+    box-shadow: 0 8px 20px var(--shadow);
+    font-family: var(--content-family);
+}
+
+.changepass h2{
+    font-family: var(--headings-family);
+    color: var(--heading-primary);
+    margin-bottom: 2rem;
+}
+
+.changepass label{
+    width: 100%;
+    color: var(--heading-secondary);
+    font-weight: 600;
+    margin-bottom: -0.5rem;
+}
+
+.changepass input{
+    width: 100%;
+    height: 45px;
+    padding: 0 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    background-color: var(--bg-col-light);
+    color: var(--text-col);
+    font-size: 15px;
+    margin: 0;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.changepass input::placeholder{
+    color: var(--text-muted);
+}
+
+.changepass input:focus{
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(94, 152, 219, 0.2);
+}
+
+.changepass button{
+    width: 100%;
+    height: 48px;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--accent);
+    color: var(--text-light);
+    font-family: var(--content-family);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 10px var(--shadow);
+}
+
+.changepass button:hover{
+    background-color: #5b8cc0;
+}
+
+.changepass button:active{
+    transform: scale(0.98);
+}

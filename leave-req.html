@@ -159,137 +159,33 @@
                                 </button>
                             </div>
                         </div>
-
-                        <div class="table-row">
-                            <div class="employee-cell">
-                                <div class="avatar">E</div>
-                                <div>
-                                    <h4>Emily</h4>
-                                    <p>EMP002</p>
-                                </div>
-                            </div>
-                            <div>
-                                <span class="tag casual">
-                                    Casual Leave
-                                </span>
-                            </div>
-                            <div>Jun 10</div>
-                            <div>Jun 11</div>
-                            <div class="days">1</div>
-                            <div>Personal Work</div>
-                            <div>
-                                <span class="tag pending">
-                                    Pending
-                                </span>
-                            </div>
-                            <div class="actions">
-                                <button class="approve-btn">
-                                    Approve
-                                </button>
-                                <button class="reject-btn">
-                                    Reject
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="table-row">
-                            <div class="employee-cell">
-                                <div class="avatar">E</div>
-                                <div>
-                                    <h4>Roselyn</h4>
-                                    <p>EMP002</p>
-                                </div>
-                            </div>
-                            <div>
-                                <span class="tag casual">
-                                    earned Leave
-                                </span>
-                            </div>
-                            <div>Jun 10</div>
-                            <div>Jun 11</div>
-                            <div class="days">4</div>
-                            <div>Personal Work</div>
-                            <div>
-                                <span class="tag pending">
-                                    Pending
-                                </span>
-                            </div>
-                            <div class="actions">
-                                <button class="approve-btn">
-                                    Approve
-                                </button>
-                                <button class="reject-btn">
-                                    Reject
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="table-row">
-                            <div class="employee-cell">
-                                <div class="avatar">E</div>
-                                <div>
-                                    <h4>Adrian</h4>
-                                    <p>EMP003</p>
-                                </div>
-                            </div>
-                            <div>
-                                <span class="tag casual">
-                                    Sick Leave
-                                </span>
-                            </div>
-                            <div>Jun 10</div>
-                            <div>Jun 11</div>
-                            <div class="days">1</div>
-                            <div>Personal Work</div>
-                            <div>
-                                <span class="tag pending">
-                                    Pending
-                                </span>
-                            </div>
-                            <div class="actions">
-                                <button class="approve-btn">
-                                    Approve
-                                </button>
-                                <button class="reject-btn">
-                                    Reject
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="table-row">
-                            <div class="employee-cell">
-                                <div class="avatar">R</div>
-                                <div>
-                                    <h4>Cassian</h4>
-                                    <p>EMP005</p>
-                                </div>
-                            </div>
-                            <div>
-                                <span class="tag casual">
-                                    Sick Leave
-                                </span>
-                            </div>
-                            <div>Jun 10</div>
-                            <div>Jun 11</div>
-                            <div class="days">2</div>
-                            <div>Feeling unwell</div>
-                            <div>
-                                <span class="tag pending">
-                                    Pending
-                                </span>
-                            </div>
-                            <div class="actions">
-                                <button class="approve-btn">
-                                    Approve
-                                </button>
-                                <button class="reject-btn">
-                                    Reject
-                                </button>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div id="leaveModal" class="leave-modal">
+        <div class="leave-modal-content">
+
+            <h2>Leave Request Details</h2>
+
+            <div class="leave-details">
+                <p><strong>Name:</strong> <span id="modalName"></span></p>
+                <p><strong>Employee ID:</strong> <span id="modalEmpId"></span></p>
+                <p><strong>Leave Type:</strong> <span id="modalType"></span></p>
+                <p><strong>From:</strong> <span id="modalFrom"></span></p>
+                <p><strong>To:</strong> <span id="modalTo"></span></p>
+                <p><strong>Reason:</strong> <span id="modalReason"></span></p>
+                <p><strong>Status:</strong> <span id="modalStatus"></span></p>
+            </div>
+
+            <div class="leave-modal-buttons">
+                <button class="leave-close" id="closeLeaveModal">
+                    Close
+                </button>
+            </div>
+
         </div>
     </div>
     <footer>

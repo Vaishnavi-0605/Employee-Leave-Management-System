@@ -382,8 +382,11 @@ aside{
 
 /* ---------------------------------------------TABLE---------------------------- */
 .table-row {
-    display: grid;
-    grid-template-columns:2.2fr 1.3fr 1.3fr 1fr 1fr .7fr 1.2fr 1fr .5fr;
+    /* display: grid; */
+    /* grid-template-columns: 1.7fr 1fr 1.2fr 1fr 1fr 1fr 1fr 1fr; */
+    display: flex;
+    flex-direction: row;
+    gap: 7.4rem;
     align-items: center;
     padding: 18px 0px;
     border-bottom: 1px solid lightgray;
@@ -445,7 +448,7 @@ aside{
 .pending {
     background: var(--orange-pill-bg);
     color: var(--orange-pill-text);
-    margin-left: 48px;
+    margin-left: 0;
 }
 
 .rejected {
@@ -466,6 +469,9 @@ aside{
     font-weight:600;
     border-radius:10px 10px 0 0;
 }
+.table-header:hover{
+    background:#edf3fc;
+}
 
 /* --------------------------------BUTTONS------------------------------ */
 
@@ -475,7 +481,8 @@ aside{
 }
 
 .approve-btn{
-    padding:16px 32px;
+    padding: 8px 12px;
+    font-weight: 700;
     font-size: 18px;
     border:none;
     border-radius:8px;
@@ -485,7 +492,8 @@ aside{
 }
 
 .reject-btn{
-    padding:16px 32px;
+    padding: 8px 12px;
+    font-weight: 700;
     font-size: 18px;
     border:none;
     border-radius:8px;
@@ -502,6 +510,98 @@ aside{
 .reject-btn:hover{
     background:#f8cccc;
     border: 1px solid #671c1c ;
+}
+
+/* ================= LEAVE DETAILS MODAL ================= */
+
+.leave-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.leave-modal-content {
+    width: 550px;
+    max-width: 90%;
+
+    background: var(--card-bg);
+    color: var(--text-col);
+
+    border-radius: 18px;
+    padding: 30px;
+
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+.leave-modal-content h2 {
+    margin-bottom: 20px;
+    color: var(--heading-primary);
+}
+
+.leave-details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.leave-details p {
+    font-size: 17px;
+    color: var(--text-col);
+}
+
+.leave-details strong {
+    display: inline-block;
+    width: 130px;
+}
+
+.leave-modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.leave-modal-buttons button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.leave-approve {
+    background: var(--green-pill-bg);
+    color: var(--green-pill-text);
+}
+
+.leave-approve:hover {
+    background: #c9edd3;
+}
+
+.leave-reject {
+    background: var(--red-pill-bg);
+    color: var(--red-pill-text);
+}
+
+.leave-reject:hover {
+    background: #f8cccc;
+}
+
+.leave-close {
+    background: var(--background-col);
+    color: var(--text-light);
+}
+
+.leave-close:hover {
+    background: var(--accents);
 }
 
 footer{

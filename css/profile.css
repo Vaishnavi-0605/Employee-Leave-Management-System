@@ -63,6 +63,7 @@
     --page-bg: #0f1117;            
     --bg-col-light: #1b1f2b;       
     --card-bg: #1b1f2b;
+    --cards : #41476e;
 
     /* Text */
     --text-col: #f5f7fa;
@@ -303,7 +304,7 @@ aside{
 
 .profile-card{
     font-size: 18px;
-    background-color: rgba(246, 246, 245, 0.575);
+    background-color: var(--cards);
     border-radius:18px;
     padding:24px;
     text-align:center;
@@ -337,7 +338,7 @@ aside{
     padding:16px;
     border:none;
     border-radius:10px;
-    background-color: var(--card-bg);
+    background-color: var(--accent2);
     box-shadow: 0 4px 10px var(--shadow);
     color:var(--text-col);
     cursor:pointer;

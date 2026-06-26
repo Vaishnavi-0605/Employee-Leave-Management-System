@@ -3,6 +3,8 @@ document.querySelector('.save-btn').addEventListener('click', ()=>{
 })
 
 document.querySelector('.change-pass').addEventListener('click', ()=>{
-    alert('Are you sure you want to change your password?');
-    alert('Password changed');
+    // alert('Are you sure you want to change your password?');
+    // alert('Password changed');
+     window.location.href = "changepass.html";
+
 })
