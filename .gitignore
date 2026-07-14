@@ -1,3 +1,4 @@
 node_modules/
 HTML-static files/
 .early.coverage
+.env
