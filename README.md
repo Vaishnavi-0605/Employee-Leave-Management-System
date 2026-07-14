@@ -65,11 +65,8 @@ Main tables:
 
 | Dashboard | Employees |
 |-----------|-----------|
-| *(Add image)* | *(Add image)* |
-
-| Leave Requests | Employee Portal |
-|----------------|-----------------|
-| *(Add image)* | *(Add image)* |
+|<img width="1898" height="971" alt="image" src="https://github.com/user-attachments/assets/d89e5391-1676-4d79-888d-43a8b831fc52" />
+|<img width="1902" height="968" alt="image" src="https://github.com/user-attachments/assets/5856241d-ea1b-4a40-9d15-fd10a4d61810" />
 
 ## 👩‍💻 Author
 
