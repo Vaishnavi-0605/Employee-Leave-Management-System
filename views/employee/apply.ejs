@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Leave</title>
+    
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="/css/var.css?v=1.2">
+    <link rel="stylesheet" href="/css/global.css?v=1.2">
+    <link rel="stylesheet" href="/css/nav.css?v=1.2">
+    <link rel="stylesheet" href="/css/sidebar.css?v=1.2">
+    <link rel="stylesheet" href="/employee/css/emp-style.css?v=1.2">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <!-- NAV BAR -->
+            <nav class="nav-bar">
+                <div class="left">
+                    <div class="menu" id="menu-btn">
+                        <i class="bi bi-list"></i>
+                    </div>
+                    <div class="title">
+                        <h1>PreLeave</h1>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="notif">
+                        <i class="bi bi-bell-fill"></i>
+                    </div>
+                    <div class="toggle-dn">
+                        <i class="bi bi-brightness-high-fill" id="theme-toggle"></i>
+                    </div>
+                    <div class="profile" onclick="window.location.href='/employee/profile'">
+                        <% if (employee.profile_picture) { %>
+                            <img src="/<%= employee.profile_picture %>" alt="Profile" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border-light);">
+                        <% } else { %>
+                            <i class="bi bi-person-circle"></i>
+                        <% } %>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="main-area">
+                <!-- SIDEBAR -->
+                <aside class="sidebar" id="sidebar">
+                    <div class="aside-nav">
+                        <a href="/employee/dashboard" class="menu-item">
+                            <i class="bi bi-speedometer2"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="/employee/profile" class="menu-item">
+                            <i class="bi bi-person-badge-fill"></i>
+                            <span>My Profile</span>
+                        </a>
+                        <a href="/employee/apply" class="menu-item active">
+                            <i class="bi bi-calendar-plus-fill"></i>
+                            <span>Apply for Leave</span>
+                        </a>
+                        <a href="/employee/history" class="menu-item">
+                            <i class="bi bi-calendar-check"></i>
+                            <span>Leave History</span>
+                        </a>
+                        <a href="/employee/rules" class="menu-item">
+                            <i class="bi bi-journal-text"></i>
+                            <span>Leave Rules</span>
+                        </a>
+                        <a href="/employee/contact" class="menu-item">
+                            <i class="bi bi-envelope-fill"></i>
+                            <span>Contact Us</span>
+                        </a>
+                        <a href="/logout" class="menu-item">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </aside>
+
+                <!-- MAIN CONTENT -->
+                <main class="main-container" id="main-cont">
+                    <div class="section-card" style="max-width: 800px; margin: 0 auto;">
+                        <div class="section-header">
+                            <h2>Submit Leave Request</h2>
+                        </div>
+                        
+                        <!-- Submit Form to POST /employee/apply -->
+                        <form class="form-edit" action="/employee/apply" method="POST">
+                            <div class="form-group">
+                                <label>Leave Type</label>
+                                <select name="leaveType" required>
+                                    <option value="" disabled selected>Select Leave Type</option>
+                                    <option value="Casual Leave">Casual Leave</option>
+                                    <option value="Sick Leave">Sick Leave</option>
+                                    <option value="Paid Leave">Paid Leave</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Total Days (Calculated)</label>
+                                <!-- Read-only because backend calculates total_days automatically -->
+                                <input type="text" id="displayDays" value="0 Days" readonly style="background-color: var(--bg-col-light); cursor: not-allowed;">
+                            </div>
+                            <div class="form-group">
+                                <label>Start Date</label>
+                                <input type="date" name="fromDate" id="fromDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label>End Date</label>
+                                <input type="date" name="toDate" id="toDate" required>
+                            </div>
+                            <div class="form-group full-width">
+                                <label>Reason for Leave</label>
+                                <textarea name="reason" placeholder="Describe the reason for your leave request..." required></textarea>
+                            </div>
+                            <div class="btn-group full-width">
+                                <button type="button" class="btn btn-secondary" onclick="window.location.href='/employee/dashboard'">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Submit Request</button>
+                            </div>
+                        </form>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <p>&copy; 2026 PreLeave Employee Leave Management System</p>
+        </div>
+    </footer>
+
+    <!-- Interactive script to compute total days on date select -->
+    <script>
+        const fromDateInput = document.getElementById("fromDate");
+        const toDateInput = document.getElementById("toDate");
+        const displayDaysInput = document.getElementById("displayDays");
+
+        function calculateDays() {
+            const fromVal = fromDateInput.value;
+            const toVal = toDateInput.value;
+
+            if (fromVal && toVal) {
+                const start = new Date(fromVal);
+                const end = new Date(toVal);
+                
+                if (end >= start) {
+                    const diffTime = Math.abs(end - start);
+                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+                    displayDaysInput.value = `${diffDays} ${diffDays > 1 ? 'Days' : 'Day'}`;
+                } else {
+                    displayDaysInput.value = "Invalid Date Range";
+                }
+            } else {
+                displayDaysInput.value = "0 Days";
+            }
+        }
+
+        fromDateInput.addEventListener("change", calculateDays);
+        toDateInput.addEventListener("change", calculateDays);
+    </script>
+
+    <!-- JS script for sidebar/theme toggles -->
+    <script src="/employee/js/nav-handler.js"></script>
+</body>
+</html>

@@ -8,9 +8,13 @@ const dashboardRoutes = require("./routes/dashboard");
 const employeeRoutes = require("./routes/employee");
 const leaveRoutes = require("./routes/leave");
 const profileRoutes = require("./routes/profile");
+const attendanceRoutes = require("./routes/attendance");
+const employeePortalRoutes = require("./routes/employeePortal");
 
+const formatDate = require("./utils/formatDate");
 
 const app = express();
+app.locals.formatDate = formatDate;
 
 
 app.set("view engine","ejs");
@@ -29,6 +33,8 @@ app.use("/",dashboardRoutes);
 app.use("/",employeeRoutes);
 app.use("/",leaveRoutes);
 app.use("/",profileRoutes);
+app.use("/", attendanceRoutes);
+app.use("/", employeePortalRoutes);
 
 
 

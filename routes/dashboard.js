@@ -4,7 +4,7 @@ const router=express.Router();
 const controller=require("../controllers/dashboardController");
 
 
-router.get("/dashboard",controller.dashboard);
+router.get("/dashboard",controller.index);
 
 
 module.exports=router;

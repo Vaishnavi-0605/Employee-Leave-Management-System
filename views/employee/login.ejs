@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PreLeave Login</title>
+
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="main">
+
+        <div class="text-content">
+            <h1>Welcome!</h1>
+            <p>Sign in to continue to your Employee Portal</p>
+        </div>
+
+        <div class="form-area">
+
+            <!-- Action updated to POST to /employee/login for Auth -->
+            <form action="/employee/login" method="POST" class="login-form" id="loginfm">
+
+                <input type="email" name="email" placeholder="Enter your Email" id="email" required>
+                <span id="emailError" style="color: red;"></span>
+
+                <div class="password-wrapper">
+                    <input type="password" name="password" placeholder="Enter your password" id="pass" required>
+                    <i class="bi bi-eye-slash toggle-password" id="toggle-eye" onclick="togglePassword()"></i>
+                    <span id="passError" style="color: red;"></span>
+                </div>
+
+                <!-- Display authentication errors if present -->
+                <% if (error) { %>
+                    <div style="color: #e5484d; text-align: center; margin-bottom: 15px; font-weight: 500; font-size: 0.9rem;">
+                        <%= error %>
+                    </div>
+                <% } %>
+
+                <button type="submit">Login</button>
+
+            </form>
+
+            <div class="divider">
+                <hr>
+                <span>or</span>
+                <hr>
+            </div>
+
+            <p class="footer-text">
+                To register, contact your HR
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Client side validation script -->
+<script src="/js/emplogin.js"></script>
+
+</body>
+</html>

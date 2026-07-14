@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="/css/var.css?v=1.2">
+    <link rel="stylesheet" href="/css/global.css?v=1.2">
+    <link rel="stylesheet" href="/css/nav.css?v=1.2">
+    <link rel="stylesheet" href="/css/sidebar.css?v=1.2">
+    <link rel="stylesheet" href="/employee/css/emp-style.css?v=1.2">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <!-- NAV BAR -->
+            <nav class="nav-bar">
+                <div class="left">
+                    <div class="menu" id="menu-btn">
+                        <i class="bi bi-list"></i>
+                    </div>
+                    <div class="title">
+                        <h1>PreLeave</h1>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="notif">
+                        <i class="bi bi-bell-fill"></i>
+                    </div>
+                    <div class="toggle-dn">
+                        <i class="bi bi-brightness-high-fill" id="theme-toggle"></i>
+                    </div>
+                    <div class="profile" onclick="window.location.href='/employee/profile'">
+                        <% if (employee.profile_picture) { %>
+                            <img src="/<%= employee.profile_picture %>" alt="Profile" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border-light);">
+                        <% } else { %>
+                            <i class="bi bi-person-circle"></i>
+                        <% } %>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="main-area">
+                <!-- SIDEBAR -->
+                <aside class="sidebar" id="sidebar">
+                    <div class="aside-nav">
+                        <a href="/employee/dashboard" class="menu-item">
+                            <i class="bi bi-speedometer2"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="/employee/profile" class="menu-item active">
+                            <i class="bi bi-person-badge-fill"></i>
+                            <span>My Profile</span>
+                        </a>
+                        <a href="/employee/apply" class="menu-item">
+                            <i class="bi bi-calendar-plus-fill"></i>
+                            <span>Apply for Leave</span>
+                        </a>
+                        <a href="/employee/history" class="menu-item">
+                            <i class="bi bi-calendar-check"></i>
+                            <span>Leave History</span>
+                        </a>
+                        <a href="/employee/rules" class="menu-item">
+                            <i class="bi bi-journal-text"></i>
+                            <span>Leave Rules</span>
+                        </a>
+                        <a href="/employee/contact" class="menu-item">
+                            <i class="bi bi-envelope-fill"></i>
+                            <span>Contact Us</span>
+                        </a>
+                        <a href="/logout" class="menu-item">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </aside>
+
+                <!-- MAIN CONTENT -->
+                <main class="main-container" id="main-cont">
+                    <div class="prf-page">
+                        <div class="prf-left-card">
+                            <% if (employee.profile_picture) { %>
+                                <img src="/<%= employee.profile_picture %>" alt="Profile Picture" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid var(--border-light); margin: 0 auto 1rem; display: block;">
+                            <% } else { %>
+                                <div class="prf-avatar"><%= employee.full_name.charAt(0).toUpperCase() %></div>
+                            <% } %>
+                            <h2><%= employee.full_name %></h2>
+                            <p><%= employee.position %></p>
+                            <div class="prf-quick-details">
+                                <div class="prf-detail-item">
+                                    <span>Employee ID</span>
+                                    <span><%= employee.employee_code %></span>
+                                </div>
+                                <div class="prf-detail-item">
+                                    <span>Department</span>
+                                    <span><%= employee.department %></span>
+                                </div>
+                                <div class="prf-detail-item">
+                                    <span>Date Joined</span>
+                                    <span><%= new Date(employee.joining_date).toISOString().split('T')[0] %></span>
+                                </div>
+                                <div class="prf-detail-item">
+                                    <span>Status</span>
+                                    <span><%= employee.status %></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="prf-right-card">
+                            <div class="section-header">
+                                <h2>Profile Details</h2>
+                            </div>
+                            <form class="form-edit" onsubmit="event.preventDefault();">
+                                <div class="form-group">
+                                    <label>Email ID</label>
+                                    <input type="email" value="<%= employee.email %>" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone Number</label>
+                                    <input type="tel" value="<%= employee.phone %>" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label>Gender</label>
+                                    <input type="text" value="<%= employee.gender || 'Not Specified' %>" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label>Attendance Rate</label>
+                                    <input type="text" value="<%= employee.attendance %>%" readonly>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label>Joined On</label>
+                                    <input type="text" value="<%= new Date(employee.joining_date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) %>" readonly>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <p>&copy; 2026 PreLeave Employee Leave Management System</p>
+        </div>
+    </footer>
+
+    <!-- JS script for sidebar/theme toggles -->
+    <script src="/employee/js/nav-handler.js"></script>
+</body>
+</html>

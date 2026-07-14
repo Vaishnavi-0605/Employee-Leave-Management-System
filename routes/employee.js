@@ -12,7 +12,7 @@ router.get("/employees/:id", employeeController.show);
 
 router.get("/employees/:id/edit", employeeController.edit);
 
-router.put("/employees/:id", employeeController.update);
+router.put("/employees/:id", upload.single('profilePic'),employeeController.update);
 
 router.delete("/employees/:id", employeeController.destroy);
 

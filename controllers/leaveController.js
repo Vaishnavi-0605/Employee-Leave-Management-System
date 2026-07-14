@@ -1,75 +1,60 @@
-const leaves = require("../models/dummydata/leave");
+const pool = require("../db");
 
-exports.index = (req, res) => {
+exports.index = async (req, res) => {
 
-    res.render("leave-req", {
-        leaves
-    });
+    try {
+
+        const result = await pool.query(`
+            SELECT
+                lr.leave_id,
+                lr.employee_id,
+                e.full_name,
+                lr.leave_type,
+                lr.start_date,
+                lr.end_date,
+                lr.total_days,
+                lr.reason,
+                lr.status
+            FROM leave_requests lr
+            JOIN employees e
+            ON lr.employee_id = e.employee_id
+            ORDER BY lr.leave_id DESC
+        `);
+
+        res.render("leave-req", {
+            leaves: result.rows
+        });
+
+    } catch (err) {
+
+        console.log(err);
+
+    }
 
 };
 
+exports.approve = async (req, res) => {
 
+    await pool.query(
+        "UPDATE leave_requests SET status='Approved' WHERE leave_id=$1",
+        [req.params.id]
+    );
+
+    res.redirect("/leaves");
+
+};
+
+exports.reject = async (req, res) => {
+
+    await pool.query(
+        "UPDATE leave_requests SET status='Rejected' WHERE leave_id=$1",
+        [req.params.id]
+    );
+
+    res.redirect("/leaves");
+
+};
 
 exports.create = (req, res) => {
-
-    let {
-        empId,
-        empName,
-        leaveType,
-        fromDate,
-        toDate,
-        days,
-        reason
-    } = req.body;
-
-    let leave = {
-
-        reqId: leaves.length + 1,
-        empId,
-        empName,
-        leaveType,
-        fromDate,
-        toDate,
-        days: parseInt(days),
-        reason,
-        status: "Pending"
-
-    };
-
-    leaves.push(leave);
-
     res.redirect("/leaves");
-
-};
-
-
-
-exports.approve = (req, res) => {
-
-    let id = parseInt(req.params.id);
-
-    let leave = leaves.find(l => l.reqId === id);
-
-    if (leave) {
-        leave.status = "Approved";
-    }
-
-    res.redirect("/leaves");
-
-};
-
-
-
-exports.reject = (req, res) => {
-
-    let id = parseInt(req.params.id);
-
-    let leave = leaves.find(l => l.reqId === id);
-
-    if (leave) {
-        leave.status = "Rejected";
-    }
-
-    res.redirect("/leaves");
-
 };

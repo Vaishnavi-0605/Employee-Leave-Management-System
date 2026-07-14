@@ -1,5 +1,6 @@
 const pool = require("../db");
-
+const generatePassword = require("../utils/genpass");
+const bcrypt = require("bcrypt");
 
 // GET ALL EMPLOYEES
 exports.index = async (req, res) => {
@@ -17,6 +18,7 @@ exports.index = async (req, res) => {
     }
 };
 
+
 // CREATE EMPLOYEE
 
 exports.create = async (req, res) => {
@@ -30,22 +32,29 @@ exports.create = async (req, res) => {
             empMail,
             empPh,
             status,
-            gender
+            gender,
+            empJoinDate
         } = req.body;
 
         const profilePicture = req.file
-        ? "uploads/" + req.file.filename : null;
+            ? "uploads/" + req.file.filename
+            : null;
 
         // Generate EMP001, EMP002...
+
         const count = await pool.query(
-            "SELECT COUNT(*) FROM employees"
+            "SELECT MAX(employee_id) AS max_id FROM employees"
         );
 
-        const nextNum = Number(count.rows[0].count) + 1;
+        const nextNum = Number(count.rows[0].count || 0) + 1;
 
         const empCode = "EMP" + String(nextNum).padStart(3, "0");
 
-        const joinDate = new Date().toISOString().split("T")[0];
+        const tempPassword = generatePassword();
+
+        const hashedPassword = await bcrypt.hash(tempPassword, 10);
+
+        console.log(req.body.employeeCode);
 
         await pool.query(
 
@@ -58,13 +67,14 @@ exports.create = async (req, res) => {
                 email,
                 phone,
                 gender,
+                password,
                 joining_date,
                 status,
                 profile_picture
             )
 
             VALUES
-            ($1,$2,$3,$4,$5,$6,$7,$8,$9, $10)
+            ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10, $11)
             `,
 
             [
@@ -75,14 +85,26 @@ exports.create = async (req, res) => {
                 empMail,
                 empPh,
                 gender,
-                joinDate,
+                hashedPassword,
+                empJoinDate,
                 status || "Active",
                 profilePicture
             ]
 
         );
 
-        res.redirect("/employees");
+        const result = await pool.query(
+            "SELECT * FROM employees ORDER BY employee_id"
+        );
+        
+        res.render("employees", {
+            employees: result.rows,
+            credentials: {
+                name: empName,
+                email: empMail,
+                password: tempPassword
+            }
+        });
 
     }
 
@@ -194,44 +216,83 @@ exports.update = async (req, res) => {
 
         } = req.body;
 
-        const profilePicture = req.file
-        ? "uploads/" + req.file.filename : null;
+        let profilePicture;
 
-        await pool.query(
+        if (req.file) {
 
-            `UPDATE employees
+            profilePicture = "uploads/" + req.file.filename;
 
-            SET
+            await pool.query(
 
-            full_name = $1,
-            department = $2,
-            position = $3,
-            email = $4,
-            phone = $5,
-            joining_date = $6,
-            status = $7,
-            gender = $8,
-            profile_picture = $9,
+                `UPDATE employees
 
-            WHERE employee_code = $10
-            `,
+                SET
 
-            [
+                full_name = $1,
+                department = $2,
+                position = $3,
+                email = $4,
+                phone = $5,
+                joining_date = $6,
+                status = $7,
+                gender = $8,
+                profile_picture = $9
 
-                empName,
-                empDept,
-                posn,
-                empMail,
-                empPh,
-                empJoinDate,
-                status,
-                gender,
-                profilePic,
-                id
+                WHERE employee_code = $10`,
 
-            ]
+                [
 
-        );
+                    empName,
+                    empDept,
+                    posn,
+                    empMail,
+                    empPh,
+                    empJoinDate,
+                    status,
+                    gender,
+                    profilePicture,
+                    id
+
+                ]
+
+            );
+
+        } else {
+
+            await pool.query(
+
+                `UPDATE employees
+
+                SET
+
+                full_name = $1,
+                department = $2,
+                position = $3,
+                email = $4,
+                phone = $5,
+                joining_date = $6,
+                status = $7,
+                gender = $8
+
+                WHERE employee_code = $9`,
+
+                [
+
+                    empName,
+                    empDept,
+                    posn,
+                    empMail,
+                    empPh,
+                    empJoinDate,
+                    status,
+                    gender,
+                    id
+
+                ]
+
+            );
+
+        }
 
         res.redirect("/employees");
 

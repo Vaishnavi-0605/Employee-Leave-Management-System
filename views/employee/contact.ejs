@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact HR Support</title>
+    
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="/css/var.css?v=1.2">
+    <link rel="stylesheet" href="/css/global.css?v=1.2">
+    <link rel="stylesheet" href="/css/nav.css?v=1.2">
+    <link rel="stylesheet" href="/css/sidebar.css?v=1.2">
+    <link rel="stylesheet" href="/employee/css/emp-style.css?v=1.2">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <!-- NAV BAR -->
+            <nav class="nav-bar">
+                <div class="left">
+                    <div class="menu" id="menu-btn">
+                        <i class="bi bi-list"></i>
+                    </div>
+                    <div class="title">
+                        <h1>PreLeave</h1>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="notif">
+                        <i class="bi bi-bell-fill"></i>
+                    </div>
+                    <div class="toggle-dn">
+                        <i class="bi bi-brightness-high-fill" id="theme-toggle"></i>
+                    </div>
+                    <div class="profile" onclick="window.location.href='/employee/profile'">
+                        <% if (employee.profile_picture) { %>
+                            <img src="/<%= employee.profile_picture %>" alt="Profile" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border-light);">
+                        <% } else { %>
+                            <i class="bi bi-person-circle"></i>
+                        <% } %>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="main-area">
+                <!-- SIDEBAR -->
+                <aside class="sidebar" id="sidebar">
+                    <div class="aside-nav">
+                        <a href="/employee/dashboard" class="menu-item">
+                            <i class="bi bi-speedometer2"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="/employee/profile" class="menu-item">
+                            <i class="bi bi-person-badge-fill"></i>
+                            <span>My Profile</span>
+                        </a>
+                        <a href="/employee/apply" class="menu-item">
+                            <i class="bi bi-calendar-plus-fill"></i>
+                            <span>Apply for Leave</span>
+                        </a>
+                        <a href="/employee/history" class="menu-item">
+                            <i class="bi bi-calendar-check"></i>
+                            <span>Leave History</span>
+                        </a>
+                        <a href="/employee/rules" class="menu-item">
+                            <i class="bi bi-journal-text"></i>
+                            <span>Leave Rules</span>
+                        </a>
+                        <a href="/employee/contact" class="menu-item active">
+                            <i class="bi bi-envelope-fill"></i>
+                            <span>Contact Us</span>
+                        </a>
+                        <a href="/logout" class="menu-item">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </aside>
+
+                <!-- MAIN CONTENT -->
+                <main class="main-container" id="main-cont">
+                    <div class="contact-layout">
+                        <div class="contact-info-cards">
+                            <div class="contact-card">
+                                <i class="bi bi-envelope-open-fill"></i>
+                                <div class="contact-details">
+                                    <h4>HR Department Email</h4>
+                                    <p>hr@company.com</p>
+                                    <p>support.leaves@company.com</p>
+                                </div>
+                            </div>
+                            <div class="contact-card">
+                                <i class="bi bi-telephone-fill"></i>
+                                <div class="contact-details">
+                                    <h4>HR Hotline Phone</h4>
+                                    <p>+91 98765 00112</p>
+                                    <p>Ext. 404 (Mon-Fri, 9am - 6pm)</p>
+                                </div>
+                            </div>
+                            <div class="contact-card">
+                                <i class="bi bi-geo-alt-fill"></i>
+                                <div class="contact-details">
+                                    <h4>Office Address</h4>
+                                    <p>HR Operations, 4th Floor</p>
+                                    <p>Main Tech Park Tower, Building A</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="prf-right-card">
+                            <div class="section-header">
+                                <h2>Send Message to HR Support</h2>
+                            </div>
+                            <form class="form-edit" onsubmit="event.preventDefault(); alert('Message sent successfully! Support team will contact you shortly.'); this.reset();">
+                                <div class="form-group">
+                                    <label>Subject / Area of Issue</label>
+                                    <select required>
+                                        <option value="" disabled selected>Select issue type</option>
+                                        <option value="balance">Incorrect Leave Balance</option>
+                                        <option value="accrual">Leave Accrual Inquiries</option>
+                                        <option value="system">Leave Portal System Bug</option>
+                                        <option value="other">Other HR Queries</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Urgency Level</label>
+                                    <select required>
+                                        <option value="low">Low (Response in 48h)</option>
+                                        <option value="medium" selected>Medium (Response in 24h)</option>
+                                        <option value="high">High (Urgent Attention)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label>Describe your query or issue</label>
+                                    <textarea placeholder="Write details of your problem here..." required></textarea>
+                                </div>
+                                <div class="btn-group full-width">
+                                    <button type="submit" class="btn btn-primary">Send Message</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <p>@ Employee Leave Management System</p>
+        </div>
+    </footer>
+
+    <!-- sidebar/theme toggles -->
+    <script src="/employee/js/nav-handler.js"></script>
+</body>
+</html>

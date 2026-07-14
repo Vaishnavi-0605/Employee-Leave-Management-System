@@ -94,28 +94,28 @@
                             <div class="kpi-card">
                                 <div class="ls pending">
                                     <i class="bi bi-hourglass-split"></i>
-                                    <h3>Pending Leaves</h3>
+                                    <h3>Active Employees</h3>
                                 </div>
                                 <div class="context">
-                                    <h1><%= pendingLeaves %></h1>
+                                    <h1><%= activeEmployees %></h1>
                                 </div>
                             </div>
                             <div class="kpi-card">
                                 <div class="ls approved">
                                     <i class="bi bi-check-circle-fill"></i>
-                                    <h3>Approved</h3>
+                                    <h3>On Leave</h3>
                                 </div>
                                 <div class="context">
-                                    <h1><%= approvedLeaves %></h1>
+                                    <h1><%= onLeaveEmployees %></h1>
                                 </div>
                             </div>
                             <div class="kpi-card">
                                 <div class="ls rejected">
                                     <i class="bi bi-x-circle-fill approve"></i>
-                                    <h3>Rejected</h3>
+                                    <h3>Inactive Employees</h3>
                                 </div>
                                 <div class="context">
-                                    <h1><%= rejectedLeaves %></h1>
+                                    <h1><%= inactiveEmployees %></h1>
                                 </div>
                             </div>
                         </div>
@@ -136,13 +136,13 @@
                                 <% leaves.filter(r => r.status === 'Approved').forEach(re => { %>
                                     <div class="leave-item">
                                         <div class="employee">
-                                            <div class="avatar"><%= re.empName[0] %></div>
+                                            <div class="avatar"><%= re.full_name[0] %></div>
                                             <div>
-                                                <h4><%= re.empName %></h4>
+                                                <h4><%= re.full_name %></h4>
                                                 <p>Employee</p>
                                             </div>
                                         </div>
-                                        <span class="tag casual"><%= re.leaveType %></span>
+                                        <span class="tag casual"><%= re.leave_type %></span>
                                     </div>
                                 <% }) %>
                             </div>
@@ -169,20 +169,20 @@
                             <% leaves.forEach(req => { %>
                                 <div class="table-row">
                                     <div class="employee">
-                                        <div class="avatar"><%= req.empName[0] %></div>
-                                        <span><%= req.empName %></span>
+                                        <div class="avatar"><%= req.full_name[0] %></div>
+                                        <span><%= req.full_name %></span>
                                     </div>
                                     <div>
-                                        <span class="tag casual"><%= req.leaveType %></span>
+                                        <span class="tag casual"><%= req.leave_type %></span>
                                     </div>
-                                    <div><%= req.fromDate %></div>
-                                    <div><%= req.toDate %></div>
-                                    <div><%= req.days %></div>
+                                    <div><%= formatDate(req.start_date) %></div>
+                                    <div><%= formatDate(req.end_date) %></div>
+                                    <div><%=req.total_days %></div>
                                     <div>
                                         <span class="tag <%= req.status.toLowerCase() %>">● <%= req.status %></span>
                                     </div>
                                     <div>
-                                        <a href="/leaves/<%= req.reqId %>/del"><i class="bi bi-trash-fill"></i></a>
+                                        <a href="/leaves/<%= req.leave_id %>/del"><i class="bi bi-trash-fill"></i></a>
                                     </div>
                                 </div>
                             <% }) %>

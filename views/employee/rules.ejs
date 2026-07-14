@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Rules</title>
+    
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="/css/var.css?v=1.2">
+    <link rel="stylesheet" href="/css/global.css?v=1.2">
+    <link rel="stylesheet" href="/css/nav.css?v=1.2">
+    <link rel="stylesheet" href="/css/sidebar.css?v=1.2">
+    <link rel="stylesheet" href="/employee/css/emp-style.css?v=1.2">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <!-- NAV BAR -->
+            <nav class="nav-bar">
+                <div class="left">
+                    <div class="menu" id="menu-btn">
+                        <i class="bi bi-list"></i>
+                    </div>
+                    <div class="title">
+                        <h1>PreLeave</h1>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="notif">
+                        <i class="bi bi-bell-fill"></i>
+                    </div>
+                    <div class="toggle-dn">
+                        <i class="bi bi-brightness-high-fill" id="theme-toggle"></i>
+                    </div>
+                    <div class="profile" onclick="window.location.href='/employee/profile'">
+                        <% if (employee.profile_picture) { %>
+                            <img src="/<%= employee.profile_picture %>" alt="Profile" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border-light);">
+                        <% } else { %>
+                            <i class="bi bi-person-circle"></i>
+                        <% } %>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="main-area">
+                <!-- SIDEBAR -->
+                <aside class="sidebar" id="sidebar">
+                    <div class="aside-nav">
+                        <a href="/employee/dashboard" class="menu-item">
+                            <i class="bi bi-speedometer2"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="/employee/profile" class="menu-item">
+                            <i class="bi bi-person-badge-fill"></i>
+                            <span>My Profile</span>
+                        </a>
+                        <a href="/employee/apply" class="menu-item">
+                            <i class="bi bi-calendar-plus-fill"></i>
+                            <span>Apply for Leave</span>
+                        </a>
+                        <a href="/employee/history" class="menu-item">
+                            <i class="bi bi-calendar-check"></i>
+                            <span>Leave History</span>
+                        </a>
+                        <a href="/employee/rules" class="menu-item active">
+                            <i class="bi bi-journal-text"></i>
+                            <span>Leave Rules</span>
+                        </a>
+                        <a href="/employee/contact" class="menu-item">
+                            <i class="bi bi-envelope-fill"></i>
+                            <span>Contact Us</span>
+                        </a>
+                        <a href="/logout" class="menu-item">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </aside>
+
+                <!-- MAIN CONTENT -->
+                <main class="main-container" id="main-cont">
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h2>Leave Policies & Rules</h2>
+                        </div>
+                        <div class="rules-grid">
+                            <div class="rule-card">
+                                <h3><i class="bi bi-calendar-check"></i> Paid Leave Accruals</h3>
+                                <p>All active full-time employees accrue Paid Leaves at a rate of 1.67 days per month worked, totaling 20 days per calendar year. Up to 10 unused paid leaves can be carried over to the next calendar year.</p>
+                            </div>
+                            <div class="rule-card">
+                                <h3><i class="bi bi-heart-pulse-fill"></i> Sick Leave Policy</h3>
+                                <p>Employees receive 12 Sick Leaves per calendar year, credited at the beginning of the year. Sick leaves are intended for medical recovery and cannot be carried over, encashed, or merged with other leave types.</p>
+                            </div>
+                            <div class="rule-card">
+                                <h3><i class="bi bi-calendar-week"></i> Casual Leave Rules</h3>
+                                <p>Employees receive 12 Casual Leaves per year. A maximum of 3 consecutive casual leaves can be requested at one time. Casual leaves require approval at least 24 hours prior to taking the leave.</p>
+                            </div>
+                            <div class="rule-card">
+                                <h3><i class="bi bi-alarm-fill"></i> Notice Period Requirements</h3>
+                                <p>For planned Paid Leaves longer than 3 days, a minimum of 2 weeks notice period is required for approval. For leaves of 1-2 days, a 3-day advance notice is requested to ensure project continuity.</p>
+                            </div>
+                            <div class="rule-card">
+                                <h3><i class="bi bi-exclamation-octagon-fill"></i> Unpaid Leave (LWP)</h3>
+                                <p>Leave Without Pay (LWP) may be granted only when all other leave balances (Paid, Casual, Sick) are fully exhausted. LWP requests require secondary manager approval and HR vetting.</p>
+                            </div>
+                            <div class="rule-card">
+                                <h3><i class="bi bi-file-earmark-medical-fill"></i> Medical Certificates</h3>
+                                <p>For any consecutive Sick Leave requests exceeding 3 days, a valid medical certificate from a registered physician must be uploaded or submitted to HR within 48 hours of returning to work.</p>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <p>&copy; 2026 PreLeave Employee Leave Management System</p>
+        </div>
+    </footer>
+
+    <!-- JS script for sidebar/theme toggles -->
+    <script src="/employee/js/nav-handler.js"></script>
+</body>
+</html>

@@ -124,21 +124,21 @@
                         <% leaves.forEach(req => { %>
                             <div class="table-row">
                                 <div class="employee-cell">
-                                    <div class="avatar"><%= req.empName[0] %></div>
+                                    <div class="avatar"><%= req.full_name[0] %></div>
                                     <div>
-                                        <h4><%= req.empName %></h4>
-                                        <p><%= req.empId %></p>
+                                        <h4><%= req.full_name %></h4>
+                                        <p><%= req.employee_id %></p>
                                     </div>
                                 </div>
                                 <div>
                                     <span class="tag casual">
-                                        <%= req.leaveType %>
+                                        <%= req.leave_type %>
                                     </span>
                                 </div>
-                                <div><%= req.fromDate %></div>
-                                <div><%= req.toDate %></div>
-                                <div class="days"><%= req.days %></div>
-                                <div class="reason"><%= req.reason %></div>
+                                <div><%= formatDate(req.start_date)  %></div>
+                                <div><%= formatDate(req.end_date) %></div>
+                                <div class="days"><%= req.total_days %></div>
+                                <div class="reason"><%= req.leave_id %></div>
                                 <div>
                                     <span class="tag <%= req.status.toLowerCase() %>">
                                         <%= req.status %>
@@ -146,10 +146,10 @@
                                 </div>
                                 <div class="actions" style="display: flex; gap: 5px;">
                                     <% if (req.status === 'Pending') { %>
-                                        <form action="/leaves/<%= req.reqId %>/approve" method="POST" style="display: inline;">
+                                        <form action="/leaves/<%= req.leave_id %>/approve" method="POST" style="display: inline;">
                                             <button type="submit" class="approve-btn">Approve</button>
                                         </form>
-                                        <form action="/leaves/<%= req.reqId %>/reject" method="POST" style="display: inline;">
+                                        <form action="/leaves/<%= req.leave_id %>/reject" method="POST" style="display: inline;">
                                             <button type="submit" class="reject-btn">Reject</button>
                                         </form>
                                     <% } %>
