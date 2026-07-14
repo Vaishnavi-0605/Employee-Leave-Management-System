@@ -1,0 +1,121 @@
+/* -------------------------------------------------------------------------PFP PAGE-------------------------------------------- */
+.profile-page {
+    margin-left: 250px;
+    margin-top: 0px;  
+    padding: 20px;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.profile-card {
+    font-size: 18px;
+    background-color: var(--cards);
+    border-radius: 18px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 4px 10px var(--shadow);
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--avatar-text);
+    font-size: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+    font-weight: bold;
+}
+
+.profile-info {
+    text-align: left;
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.profile-card button {
+    width: 80%;
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--accent2);
+    box-shadow: 0 4px 10px var(--shadow);
+    color: var(--text-col);
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.profile-card button:hover {
+    background: var(--profile-btn-hover);
+}
+
+.profile-right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.card {
+    background: var(--table-header-bg);
+    color: var(--text-col);
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 4px 10px var(--shadow);
+}
+
+.info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.info-grid label {
+    display: flex;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.info-grid input {
+    width: 70%;
+    padding: 12px;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+}
+
+.small-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.card h2, .card p {
+    margin: 20px;
+    font-weight: 700;
+}
+
+.save-btn {
+    margin-top: 20px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    background: var(--link-primary);
+    color: var(--text-light);
+    cursor: pointer;
+}
+
+.save-btn:hover {
+    background: var(--link-primary-hover);
+}
+
+.save-btn:active {
+    background: var(--accents);
+}

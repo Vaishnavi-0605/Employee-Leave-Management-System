@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--page-bg);
+    color: var(--text-col);
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-light);
+}
+
+.cont, .box {
+    margin-bottom: 80px;
+    padding-bottom: 100px;
+    background-color: var(--page-bg);
+    font-family: var(--content-family);
+}
+
+.main-area, .content-box, .content {
+    background-color: var(--page-bg);
+}
+
+footer {
+    padding: 20px;
+    color: var(--text-light);
+    background-color: var(--footer-bg);
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}

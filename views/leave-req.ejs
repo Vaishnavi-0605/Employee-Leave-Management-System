@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Requests</title>
+        <link rel="stylesheet" href="/css/var.css?v=1.2">
+    <link rel="stylesheet" href="/css/global.css?v=1.2">
+    <link rel="stylesheet" href="/css/nav.css?v=1.2">
+    <link rel="stylesheet" href="/css/sidebar.css?v=1.2">
+    <link rel="stylesheet" href="/css/leave.css?v=1.2">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+    <style>
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cont">
+            <nav class="nav-bar">
+                <div class="left">
+                    <div class="menu" id="menu-btn">
+                        <i class="bi bi-list"></i>
+                    </div>
+                    <div class="title">
+                        <h1>PreLeave</h1>
+                    </div>
+                    <div class="search-bar">
+                        <input type="text" id="search-bar">
+                        <i class="bi bi-search"></i>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="notif">
+                        <i class="bi bi-bell-fill"></i>
+                    </div>
+                    <div class="toggle-dn">
+                        <i class="bi bi-brightness-high-fill" id="theme-toggle"></i>
+                    </div>
+                    <div class="profile" onclick="window.location.href='/profile'">
+                        <i class="bi bi-person-circle"></i>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="main-area">
+                <aside class="sidebar" id="sidebar">
+                    <div class="aside-nav">
+                        <a href="/dashboard" class="menu-item">
+                            <i class="bi bi-speedometer2"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="/employees" class="menu-item">
+                            <i class="bi bi-people-fill"></i>
+                            <span>Employees</span>
+                        </a>
+                        <a href="/leaves" class="menu-item active">
+                            <i class="bi bi-calendar-check"></i>
+                            <span>Leave Requests</span>
+                        </a>
+                        <a href="/attendance" class="menu-item"> 
+                            <i class="bi bi-clock-history"></i>
+                            <span>Attendance</span>
+                        </a>
+                        <a href="/calendar" class="menu-item">
+                            <i class="bi bi-calendar-date-fill"></i>
+                            <span>Calendar</span>
+                        </a>
+
+                        <a href="/changepass" class="menu-item">
+                            <i class="bi bi-gear-fill"></i>
+                            <span>Settings</span>
+                        </a>
+                        <a href="/login" class="menu-item">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </aside>
+
+                <div class="content-box content" id="main-cont">
+                    <div class="kpi-container">
+                        <div class="kpi-card">
+                            <h4>Total Requests</h4>
+                            <h1><%= leaves.length %></h1>
+                            <p>All Time</p>
+                        </div>
+                        <div class="kpi-card">
+                            <h4>Pending</h4>
+                            <h1><%= leaves.filter(r => r.status === 'Pending').length %></h1>
+                            <p class="orange-text">Awaiting Action</p>
+                        </div>
+                        <div class="kpi-card">
+                            <h4>Approved</h4>
+                            <h1><%= leaves.filter(r => r.status === 'Approved').length %></h1>
+                            <p class="green-text">This Month</p>
+                        </div>
+                        <div class="kpi-card">
+                            <h4>Rejected</h4>
+                            <h1><%= leaves.filter(r => r.status === 'Rejected').length %></h1>
+                            <p class="red-text">This Month</p>
+                        </div>
+                    </div>
+
+                    <div class="table-leaves">
+                        <div class="table-row table-header">
+                            <div>Employee</div>
+                            <div>Leave Type</div>
+                            <div>From</div>
+                            <div>To</div>
+                            <div>Days</div>
+                            <div>Reason</div>
+                            <div>Status</div>
+                            <div>Actions</div>
+                        </div>
+
+                        <% leaves.forEach(req => { %>
+                            <div class="table-row">
+                                <div class="employee-cell">
+                                    <div class="avatar"><%= req.empName[0] %></div>
+                                    <div>
+                                        <h4><%= req.empName %></h4>
+                                        <p><%= req.empId %></p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span class="tag casual">
+                                        <%= req.leaveType %>
+                                    </span>
+                                </div>
+                                <div><%= req.fromDate %></div>
+                                <div><%= req.toDate %></div>
+                                <div class="days"><%= req.days %></div>
+                                <div class="reason"><%= req.reason %></div>
+                                <div>
+                                    <span class="tag <%= req.status.toLowerCase() %>">
+                                        <%= req.status %>
+                                    </span>
+                                </div>
+                                <div class="actions" style="display: flex; gap: 5px;">
+                                    <% if (req.status === 'Pending') { %>
+                                        <form action="/leaves/<%= req.reqId %>/approve" method="POST" style="display: inline;">
+                                            <button type="submit" class="approve-btn">Approve</button>
+                                        </form>
+                                        <form action="/leaves/<%= req.reqId %>/reject" method="POST" style="display: inline;">
+                                            <button type="submit" class="reject-btn">Reject</button>
+                                        </form>
+                                    <% } %>
+                                </div>
+                            </div>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <p>@Employee Management System</p>
+        </div>
+    </footer>
+
+    <script src="/js/leave.js"></script>
+    <script src="/script2.js"></script>
+</body>
+</html>

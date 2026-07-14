@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Employee</title>
+
+    <!-- <link rel="stylesheet" href="/css/var.css?v=1.2"> -->
+    <!-- <link rel="stylesheet" href="/css/global.css?v=1.2"> -->
+    <link rel="stylesheet" href="/css/nav.css?v=1.2">
+    <link rel="stylesheet" href="/css/sidebar.css?v=1.2">
+    <!-- <link rel="stylesheet" href="/css/empl.css?v=1.2"> -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+    <style>
+        .edit-body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--bg-color, #f4f5f7);
+            font-family: "Inter", sans-serif;
+        }
+        
+        .edit-container {
+            width: 100%;
+            max-width: 500px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .edit-container h2 {
+            font-family: "Manrope", sans-serif;
+            margin-bottom: 20px;
+        }
+        
+        .employee-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            font-family: "Manrope", sans-serif;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            font-size: 15px;
+            font-family: "Inter", sans-serif;
+            box-sizing: border-box;
+        }
+        
+        .readonly-field {
+            background-color: #f1f3f5;
+        }
+        
+        .btn-group {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .cancel-btn {
+            padding: 10px 20px;
+            border: 1px solid #ced4da;
+            background-color: #282f35;
+            border-radius: 6px;
+            color: white;
+            cursor: pointer;
+            font-family: "Inter", sans-serif;
+        }
+        
+        .save-btn {
+            padding: 10px 20px;
+            border: none;
+            background-color: #fd810d;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: "Inter", sans-serif;
+        }
+        
+        .cancel-btn:hover {
+            background-color: #6d6f71;
+            /* color: black; */
+        }
+        
+        .save-btn:hover {
+            background-color: #974e05;
+        }
+
+        .errorBox {
+            color: #d11a2a;
+            font-size: 12px;
+            margin-top: 4px;
+            min-height: 14px;
+        }
+
+        input.invalid,
+        select.invalid {
+            border: 1px solid #d11a2a;
+        }
+    </style>
+</head>
+
+<body class="edit-body">
+
+    <div class="edit-container">
+
+        <h2>Edit Employee Details</h2>
+
+        <form action="/employees/<%= emp.empId %>?_method=PUT" method="POST" class="employee-form" id="editForm" novalidate>
+
+            <div class="form-group">
+                <label>Employee ID (Read Only)</label>
+                <input
+                    type="text"
+                    value="<%= emp.empId %>"
+                    disabled
+                    class="readonly-field" >
+            </div>
+
+            <div class="form-group">
+                <label>Full Name</label>
+                <input
+                    type="text"
+                    name="empName"
+                    value="<%= emp.empName %>"
+                     minlength="3">
+                      <span class="errorBox" id="nameError"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Department</label>
+
+                <select name="empDept">
+
+                    <option <%= emp.empDept === 'Marketing' ? 'selected' : '' %>>
+                        Marketing
+                    </option>
+
+                    <option <%= emp.empDept === 'Engineering' ? 'selected' : '' %>>
+                        Engineering
+                    </option>
+
+                    <option <%= emp.empDept === 'HR' ? 'selected' : '' %>>
+                        HR
+                    </option>
+
+                    <option <%= emp.empDept === 'Finance' ? 'selected' : '' %>>
+                        Finance
+                    </option>
+
+                </select>
+                 <span class="errorBox" id="deptError"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Position</label>
+                <input
+                    type="text"
+                    name="posn"
+                    value="<%= emp.posn %>"
+                    >
+                     <span class="errorBox" id="posnError"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Email ID</label>
+                <input
+                    type="email"
+                    name="empMail"
+                    value="<%= emp.empMail %>"
+                    >
+                     <span class="errorBox" id="emailError"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input
+                    type="tel"
+                    name="empPh"
+                    value="<%= emp.empPh %>"
+                    >
+                     <span class="errorBox" id="phoneError"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Date Joined</label>
+                <input
+                    type="date"
+                    name="empJoinDate"
+                    value="<%= emp.empJoinDate %>"
+                    >
+                     <span class="errorBox" id="dateError"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Status</label>
+
+                <select name="status">
+
+                    <option value="Active"
+                        <%= emp.status === 'Active' ? 'selected' : '' %>>
+                        Active
+                    </option>
+
+                    <option value="Inactive"
+                        <%= emp.status === 'Inactive' ? 'selected' : '' %>>
+                        Inactive
+                    </option>
+
+                </select>
+                 <span class="errorBox" id="statusError"></span>
+
+            </div>
+
+            <div class="btn-group">
+
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    onclick="window.location.href='/employees'">
+
+                    Cancel
+
+                </button>
+
+                <button
+                    type="submit"
+                    class="save-btn">
+
+                    Save Changes
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <script src="/js/scriptedit.js"></script>
+</body>
+</html>

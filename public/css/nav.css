@@ -1,0 +1,74 @@
+/* ------------------------------------------------------------NAV BAR------------------------------------------------- */
+.nav-bar {
+    background-color: var(--background-col);
+    color: var(--text-light);
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.left, .right {
+    font-size: 22px;
+    display: flex;
+    flex: 1;
+    margin: auto;
+    align-items: center;
+}
+
+.left {
+    justify-content: flex-start;
+}
+
+.right {
+    justify-content: flex-end;
+    padding-right: 3%;
+}
+
+.right i {
+    font-size: 24px;
+}
+
+.title>h1 {
+    font-size: 24px;
+}
+
+.left>div, .right>div {
+    margin: 2%;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--search-border);
+    border-radius: 30px;
+    padding: 0 8px;
+    background: rgba(52, 46, 57, 0.532);
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    padding: 10px;
+    flex: 1;
+    font-size: 16px;
+    background:transparent;
+    border-radius: 30px;
+    color: var(--text-light);
+}
+
+.search-bar i {
+    color: var(--search-icon);
+}
+
+.nav-bar i {
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+.nav-bar i:hover {
+    transform: scale(1.15);
+    color: var(--hover);
+}

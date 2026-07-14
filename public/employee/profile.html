@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Profile</title>
+    <link rel="stylesheet" href="../css/var.css?v=1.2">
+    <link rel="stylesheet" href="../css/global.css?v=1.2">
+    <link rel="stylesheet" href="../css/nav.css?v=1.2">
+    <link rel="stylesheet" href="../css/sidebar.css?v=1.2">
+    <link rel="stylesheet" href="css/emp-style.css?v=1.2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <!-- NAV BAR -->
+            <nav class="nav-bar">
+                <div class="left">
+                    <div class="menu" id="menu-btn">
+                        <i class="bi bi-list"></i>
+                    </div>
+                    <div class="title">
+                        <h1>PreLeave</h1>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="notif">
+                        <i class="bi bi-bell-fill"></i>
+                    </div>
+                    <div class="toggle-dn">
+                        <i class="bi bi-brightness-high-fill" id="theme-toggle"></i>
+                    </div>
+                    <div class="profile" onclick="window.location.href='profile.html'">
+                        <i class="bi bi-person-circle"></i>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="main-area">
+                <!-- SIDEBAR -->
+                <aside class="sidebar" id="sidebar">
+                    <div class="aside-nav">
+                        <a href="dashboard.html" class="menu-item">
+                            <i class="bi bi-speedometer2"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="profile.html" class="menu-item active">
+                            <i class="bi bi-person-badge-fill"></i>
+                            <span>My Profile</span>
+                        </a>
+                        <a href="apply.html" class="menu-item">
+                            <i class="bi bi-calendar-plus-fill"></i>
+                            <span>Apply for Leave</span>
+                        </a>
+                        <a href="rules.html" class="menu-item">
+                            <i class="bi bi-journal-text"></i>
+                            <span>Leave Rules</span>
+                        </a>
+                        <a href="contact.html" class="menu-item">
+                            <i class="bi bi-envelope-fill"></i>
+                            <span>Contact Us</span>
+                        </a>
+                        <a href="login.html" class="menu-item">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </aside>
+
+                <!-- MAIN CONTENT -->
+                <main class="main-container" id="main-cont">
+                    <div class="prf-page">
+                        <div class="prf-left-card">
+                            <div class="prf-avatar">AJ</div>
+                            <h2>Alex Johnson</h2>
+                            <p>Software Engineer</p>
+                            <div class="prf-quick-details">
+                                <div class="prf-detail-item">
+                                    <span>Employee ID</span>
+                                    <span>EMP001</span>
+                                </div>
+                                <div class="prf-detail-item">
+                                    <span>Department</span>
+                                    <span>Engineering</span>
+                                </div>
+                                <div class="prf-detail-item">
+                                    <span>Date Joined</span>
+                                    <span>2020-01-17</span>
+                                </div>
+                                <div class="prf-detail-item">
+                                    <span>Status</span>
+                                    <span>Active</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="prf-right-card">
+                            <div class="section-header">
+                                <h2>Personal Details</h2>
+                            </div>
+                            <form class="form-edit" onsubmit="event.preventDefault(); alert('Profile details updated successfully!');">
+                                <div class="form-group">
+                                    <label>Email ID</label>
+                                    <input type="email" value="alex@company.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone Number</label>
+                                    <input type="tel" value="+91 9876543210" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>LinkedIn Profile</label>
+                                    <input type="url" value="https://linkedin.com/in/alexjohnson">
+                                </div>
+                                <div class="form-group">
+                                    <label>Resume (PDF Link)</label>
+                                    <input type="text" value="resume_alex_johnson.pdf" disabled>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label>Permanent Address</label>
+                                    <textarea required>402, Sunset Boulevard, Tech Park Road, Bengaluru, Karnataka - 560103</textarea>
+                                </div>
+                                <div class="btn-group full-width">
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <p>@Employee Management System</p>
+        </div>
+    </footer>
+
+    <script src="js/nav-handler.js"></script>
+</body>
+</html>

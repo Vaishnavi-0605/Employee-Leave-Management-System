@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0f1115;
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 140, 70, 0.22), transparent 60%);
+    top: -150px;
+    right: -150px;
+    filter: blur(70px);
+}
+
+.container::after {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(90, 120, 255, 0.18), transparent 60%);
+    bottom: -180px;
+    left: -180px;
+    filter: blur(90px);
+}
+
+.main {
+    z-index: 2;
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    padding: 20px;
+}
+
+.text-content {
+    color: white;
+    max-width: 420px;
+}
+
+.text-content h1 {
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.text-content p {
+    margin-top: 10px;
+    font-size: 18px;
+    opacity: 0.7;
+}
+
+.form-area {
+    width: 420px;
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(25, 28, 36, 0.78);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.role-switch {
+    display: flex;
+    background: rgba(255,255,255,0.05);
+    border-radius: 14px;
+    padding: 6px;
+}
+
+.role-switch button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    color: rgba(255,255,255,0.7);
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.role-switch .active {
+    background: linear-gradient(135deg, #ff8c46, #ff6a3d);
+    color: white;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 16px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.04);
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+.login-form input::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+.login-form input:focus {
+    border-color: #ff8c46;
+    box-shadow: 0 0 12px rgba(255,140,70,0.25);
+}
+
+.login-form button {
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #ff8c46, #ff6a3d);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-form button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255,255,255,0.5);
+    font-size: 13px;
+}
+
+.divider hr {
+    flex: 1;
+    border: none;
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+}
+
+.footer-text {
+    text-align: center;
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+}
+
+.footer-text a {
+    color: #ff8c46;
+    text-decoration: none;
+}
+
+.footer-text a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+    .main {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text-content {
+        max-width: 100%;
+    }
+
+    .form-area {
+        width: 100%;
+        max-width: 420px;
+    }
+}
+
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input {
+    padding-right: 45px !important;
+}
+
+.password-wrapper .toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+    z-index: 10;
+}

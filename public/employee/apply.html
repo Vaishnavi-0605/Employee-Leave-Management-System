@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply</title>
+    <link rel="stylesheet" href="../css/var.css?v=1.2">
+    <link rel="stylesheet" href="../css/global.css?v=1.2">
+    <link rel="stylesheet" href="../css/nav.css?v=1.2">
+    <link rel="stylesheet" href="../css/sidebar.css?v=1.2">
+    <link rel="stylesheet" href="css/emp-style.css?v=1.2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <!-- NAV BAR -->
+            <nav class="nav-bar">
+                <div class="left">
+                    <div class="menu" id="menu-btn">
+                        <i class="bi bi-list"></i>
+                    </div>
+                    <div class="title">
+                        <h1>PreLeave</h1>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="notif">
+                        <i class="bi bi-bell-fill"></i>
+                    </div>
+                    <div class="toggle-dn">
+                        <i class="bi bi-brightness-high-fill" id="theme-toggle"></i>
+                    </div>
+                    <div class="profile" onclick="window.location.href='profile.html'">
+                        <i class="bi bi-person-circle"></i>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="main-area">
+                <!-- SIDEBAR -->
+                <aside class="sidebar" id="sidebar">
+                    <div class="aside-nav">
+                        <a href="dashboard.html" class="menu-item">
+                            <i class="bi bi-speedometer2"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="profile.html" class="menu-item">
+                            <i class="bi bi-person-badge-fill"></i>
+                            <span>My Profile</span>
+                        </a>
+                        <a href="apply.html" class="menu-item active">
+                            <i class="bi bi-calendar-plus-fill"></i>
+                            <span>Apply for Leave</span>
+                        </a>
+                        <a href="rules.html" class="menu-item">
+                            <i class="bi bi-journal-text"></i>
+                            <span>Leave Rules</span>
+                        </a>
+                        <a href="contact.html" class="menu-item">
+                            <i class="bi bi-envelope-fill"></i>
+                            <span>Contact Us</span>
+                        </a>
+                        <a href="login.html" class="menu-item">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </aside>
+
+                <!-- MAIN CONTENT -->
+                <main class="main-container" id="main-cont">
+                    <div class="section-card" style="max-width: 800px; margin: 0 auto;">
+                        <div class="section-header">
+                            <h2>Submit Leave Request</h2>
+                        </div>
+                        <form class="form-edit" onsubmit="event.preventDefault(); alert('Leave request submitted successfully!'); window.location.href='dashboard.html';">
+                            <div class="form-group">
+                                <label>Leave Type</label>
+                                <select required>
+                                    <option value="" disabled selected>Select Leave Type</option>
+                                    <option value="casual">Casual Leave</option>
+                                    <option value="sick">Sick Leave</option>
+                                    <option value="paid">Paid Leave</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Total Days</label>
+                                <input type="number" min="1" placeholder="Number of days" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Start Date</label>
+                                <input type="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label>End Date</label>
+                                <input type="date" required>
+                            </div>
+                            <div class="form-group full-width">
+                                <label>Reason for Leave</label>
+                                <textarea placeholder="Describe the reason for your leave request..." required></textarea>
+                            </div>
+                            <div class="btn-group full-width">
+                                <button type="button" class="btn btn-secondary" onclick="window.location.href='dashboard.html'">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Submit Request</button>
+                            </div>
+                        </form>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <p>@Employee Management System</p>
+        </div>
+    </footer>
+
+    <script src="js/nav-handler.js"></script>
+</body>
+</html>

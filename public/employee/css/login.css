@@ -1,0 +1,127 @@
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+        135deg,
+        var(--background-col) 49%,
+        var(--page-bg) 49.5%,
+        var(--card-bg) 50.5%,
+        var(--login-gradient-color) 51%
+    );
+}
+
+.login-card {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 90%;
+    max-width: 480px;
+    border: var(--login-card-border);
+    background: var(--login-card-bg);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    box-shadow: var(--login-shadow);
+}
+
+.login-header {
+    text-align: center;
+}
+
+.login-header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--background-col);
+}
+
+.login-header p {
+    color: var(--heading-secondary);
+    font-size: 15px;
+    margin-top: 8px;
+}
+
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--heading-secondary);
+}
+
+.login-form input {
+    width: 100%;
+    height: 3.5rem;
+    box-sizing: border-box;
+    border: var(--login-input-border);
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    font-size: 16px;
+    padding: 0 1rem;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.login-form input:focus {
+    border-color: var(--accent);
+    box-shadow: var(--login-input-focus-shadow);
+}
+
+.login-btn {
+    width: 100%;
+    height: 3.5rem;
+    background-color: var(--accent);
+    color: var(--text-light);
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 1rem;
+}
+
+.login-btn:hover {
+    background-color: var(--login-btn-hover-bg);
+}
+
+.login-warning {
+    text-align: center;
+    font-size: 13px;
+    color: var(--err);
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input {
+    padding-right: 45px !important;
+}
+
+.password-wrapper .toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 18px;
+    z-index: 10;
+}
